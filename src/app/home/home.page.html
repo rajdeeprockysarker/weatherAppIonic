@@ -1,20 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Charts.js in Ionic
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  
+<div id="containerchart">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="bck">  <canvas #lineCanvasBckGround></canvas></div>
+  <div id="min">  <canvas #lineCanvasMin></canvas></div>
+  <div id="max"><canvas #lineCanvasMax></canvas></div>
+
+
   </div>
+ 
+  
 </ion-content>

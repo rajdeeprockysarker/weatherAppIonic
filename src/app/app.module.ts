@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UIServiceServiceService } from '../app/uiservice-service.service';
 import { UIToastService } from '../app/uitoast.service';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
+import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-for-weather-prediction.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { TemperatureConverterService } from '../app/temperature-converter.servic
     UIServiceServiceService,
     UIToastService,
     TemperatureConverterService,
+    OverLapGraphForWeatherPredictionService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
