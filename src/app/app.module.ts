@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { UIServiceServiceService } from '../app/uiservice-service.service';
 import { UIToastService } from '../app/uitoast.service';
+import { TemperatureConverterService } from '../app/temperature-converter.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { UIToastService } from '../app/uitoast.service';
     RepositoryService,
     UIServiceServiceService,
     UIToastService,
+    TemperatureConverterService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
