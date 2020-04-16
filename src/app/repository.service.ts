@@ -6,17 +6,47 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RepositoryService {  
   
-  public APPID:string="d994b85acc1528b1a51fb0273b7ca7c4";
 
-constructor(public http: HttpClient) { }
+  public a:string="asdfghjkl";
 
-async getVallue(params:string) {  
+  constructor(public http: HttpClient) { }
 
-  const hjghj=await this.http.get('http://api.openweathermap.org/data/2.5/weather?q='+params+'&APPID='+this.APPID).toPromise().then(data => {
-    
-    return data
-  });
-  return JSON.stringify(hjghj)   
-}
+  async getVallue(params:string) {  
+
+    const hjghj=await this.http.get('https://corona.lmao.ninja/'+params).toPromise().then(data => {      
+      return data
+    }, err => {
+      console.log(err);
+      return "Error"
+    });
+
+    return JSON.stringify(hjghj)   
+  
+  }
+
+  async getWeatherValueFiveDays(params:string) {  
+
+    const hjghj=await this.http.get('http://api.openweathermap.org/data/2.5/forecast?q='+params+'&APPID=d994b85acc1528b1a51fb0273b7ca7c4').toPromise().then(data => {      
+      return data
+    }, err => {
+      console.log(err);
+      return "Error"
+    });
+
+    return JSON.stringify(hjghj)   
+  
+  }
+  async getWeatherValueCurrent(params:string) {  
+
+    const hjghj=await this.http.get('http://api.openweathermap.org/data/2.5//weather?q='+params+'&APPID=d994b85acc1528b1a51fb0273b7ca7c4').toPromise().then(data => {      
+      return data
+    }, err => {
+      console.log(err);
+      return "Error"
+    });
+
+    return JSON.stringify(hjghj)   
+  
+  }
 
 }

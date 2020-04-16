@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RepositoryService } from '../app/repository.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { UIServiceServiceService } from '../app/uiservice-service.service';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     RepositoryService,
+    UIServiceServiceService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
