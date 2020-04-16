@@ -12,6 +12,7 @@ import { RepositoryService } from '../app/repository.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { UIServiceServiceService } from '../app/uiservice-service.service';
+import { UIToastService } from '../app/uitoast.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { UIServiceServiceService } from '../app/uiservice-service.service';
     SplashScreen,
     RepositoryService,
     UIServiceServiceService,
+    UIToastService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

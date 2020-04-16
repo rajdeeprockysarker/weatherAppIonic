@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { RepositoryService } from '../repository.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { UIServiceServiceService } from '../uiservice-service.service';
+import { UIToastService } from '../uitoast.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ import { UIServiceServiceService } from '../uiservice-service.service';
 export class HomePage {
   constructor(private http: HttpClient,
     public mRepositoryService:RepositoryService,private router: Router,
-    public mUIServiceServiceService:UIServiceServiceService) {
+    public mUIServiceServiceService:UIServiceServiceService,
+    public mUIToastService:UIToastService) {
 
     // this.http.get('https://jsonplaceholder.typicode.com/todos/1').toPromise().then(data => {
     //   console.log(data);
@@ -27,7 +29,7 @@ export class HomePage {
     const hjghj = await this.mRepositoryService.getWeatherValueFiveDays("Pune");
     if(JSON.parse(hjghj)=="Error"){
       this.mUIServiceServiceService.dismissLoading();
-     // this.mUIToastService.presentToast();
+      this.mUIToastService.presentToast();
      console.log("Error");
     }
     else{
