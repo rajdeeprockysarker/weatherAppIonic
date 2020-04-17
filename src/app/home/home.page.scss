@@ -29,44 +29,93 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+  .temp-text{
+
+    font-size:3.3rem;
+  }
+
+  .temp-label{
+font-size:1rem;
+  }
+
+  .desc-label{
+    font-size:1.5rem;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+
+  .card-header{
+    font-size:1.2rem;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+
+  .content-bg {
+    background-image:url('../../assets/icon/Bg_Image_Mobile.png')  !important ;
+    background-repeat: no-repeat;
+    background-position: center; 
+  }
 
 
+  ion-item{
+    --background:rgba(0, 0, 0, 0);
+  }
+
+  #forecastContainer{
+    height: 100px;
+}
+
+div[scrollx=true] {
+  position: relative;
+  overflow: hidden;
+}
+
+div[scrollx=true] {
+  overflow-x: auto;
+}
+
+div[scrolly=true] {
+  overflow-y: auto;
+}
 
 
+::-webkit-scrollbar {
+  display: none;
+}
 
+
+#containerchart {
+  width: 100%;
+  height: 150px;
+  position: relative;   
+  border: #000 solid 1px;
+}
+#bck {
+  width: 100%;
+  height: 150px;
+  border: #000 1px solid;
+  position: absolute;
+  z-index: 0;
+  top: 10px;
+}
+#max {
+  width: 100%;
+  height: 150px;
+  border: #000 1px solid;
+  position: absolute;  
+  z-index: 1;
+  top: 10px;
+}
+#min {
+  width: 100%;
+  height: 150px;
+  border: #000 1px solid;
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+}
 #top,
 #bottom {
     float: none;
     overflow: hidden;
-}
-
-#containerchart {
-    width: 100%;
-    height: 150px;
-    position: relative;   
-    border: #000 solid 1px;
-}
-#bck {
-    width: 100%;
-    height: 150px;
-    border: #000 1px solid;
-    position: absolute;
-    z-index: 0;
-    top: 10px;
-}
-#max {
-    width: 100%;
-    height: 150px;
-    border: #000 1px solid;
-    position: absolute;  
-    z-index: 1;
-    top: 10px;
-}
-#min {
-    width: 100%;
-    height: 150px;
-    border: #000 1px solid;
-    position: absolute;
-    z-index: 2;
-    top: 10px;
 }

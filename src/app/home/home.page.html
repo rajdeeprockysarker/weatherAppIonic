@@ -1,21 +1,176 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Charts.js in Ionic
-    </ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+      </ion-buttons>
+        <ion-title class="ion-text-center">Weather Check</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" color= "Primary">
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-no-margin content-bg">
+          <ion-card-header>
+             <ion-searchbar placeholder="Search Location" ></ion-searchbar>
+             <ion-card-title class="ion-margin-start">Weather for Pune , India</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="6">
+                    <ion-text class="temp-text ion-margin-start">8°C</ion-text>
+                    <br>
+                    <ion-text class="ion-margin-start temp-label">
+                        AND RISING
+                    </ion-text>
+                    <br>
+                    <ion-text class="desc-label ion-margin-start " >
+                        Light Rain
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                   <ion-item lines="none" > 
+                        <ion-thumbnail slot="end">
+                          <img src="https://developer.accuweather.com/sites/default/files/01-s.png">                        </ion-thumbnail>
+                    </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header color="primary">
+            <ion-text class="card-header">
+                DETAILS
+            </ion-text>
+          </ion-card-header>
+          <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4">
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none"> 
+                      <ion-thumbnail slot="start">
+                        <img src="https://developer.accuweather.com/sites/default/files/01-s.png">
+                      </ion-thumbnail>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-text >
+                            Visibility
+                        </ion-text>
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-text >
+                        16093
+                      </ion-text>
+                     </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="4">
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none"> 
+                      <ion-thumbnail slot="start">
+                        <img src="https://developer.accuweather.com/sites/default/files/01-s.png">
+                      </ion-thumbnail>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-text >
+                            Wind
+                        </ion-text>
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-text >
+                        8m/s
+                      </ion-text>
+                     </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="4">
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none"> 
+                      <ion-thumbnail slot="start">
+                        <img src="https://developer.accuweather.com/sites/default/files/01-s.png">
+                      </ion-thumbnail>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-text >
+                            Humedity
+                        </ion-text>
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-text >
+                        31%
+                      </ion-text>
+                     </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid >
+    <ion-row>
+      <ion-col>
+        <ion-card >
+          <ion-card-header color="primary">
+            <ion-text class="card-header">
+                FORECAST
+            </ion-text>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <div scrollY="true" id="forecastContainer">
+              <ion-row style="width: 800px;" >
+                <ion-col *ngFor="let day of days" class="ion-no-padding" >
+                    <ion-item lines="none" class="ion-no-padding">
+                      <ion-text>
+                        {{day}}
+                      </ion-text> 
+                    </ion-item>
+                    <ion-item lines="none" class="ion-no-padding">
+                      <ion-text>
+                          15 APR
+                      </ion-text> 
+                    </ion-item>
+                </ion-col>
+              </ion-row>
+            </div>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ <!--- <ion-grid>
+    <div scrollY="true" id="forecastContainer">
+      <ion-row style="width: 1000px;">
+      
+       </ion-row>
+    </div>
+  </ion-grid>-->
+  <div id="containerchart">
+
+    <div id="bck">  <canvas #lineCanvasBckGround></canvas></div>
+    <div id="min">  <canvas #lineCanvasMin></canvas></div>
+    <div id="max"><canvas #lineCanvasMax></canvas></div>
   
-<div id="containerchart">
-
-  <div id="bck">  <canvas #lineCanvasBckGround></canvas></div>
-  <div id="min">  <canvas #lineCanvasMin></canvas></div>
-  <div id="max"><canvas #lineCanvasMax></canvas></div>
-
-
-  </div>
- 
   
+    </div>
 </ion-content>
