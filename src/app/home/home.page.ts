@@ -30,7 +30,7 @@ export class HomePage {
   maxTempof5DaysToGrphLimit=0;
   minTempof5DaysToraphLimit=0;
   mGraphMaxMinFromTempDelta=7;
-  this.days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+  days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
 
 
