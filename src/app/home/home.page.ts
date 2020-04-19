@@ -146,20 +146,20 @@ export class HomePage {
          this.minTempof5DaysToraphLimit=Math.min(...this.mDateTempMin)-this.mGraphMaxMinFromTempDelta;
 
 
-        // this.mOverLapGraphForWeatherPredictionServiceMax.showGrapg(this.lineChartMax, this.lineCanvasMax, this.mDate,
-        //   this.mDateTempMax, 'Highest', 'rgba(255,255,0)',this.minTempof5DaysToraphLimit
-        //   ,this.maxTempof5DaysToGrphLimit);
+        this.mOverLapGraphForWeatherPredictionServiceMax.showGrapg(this.lineChartMax, this.lineCanvasMax, this.mDate,
+          this.mDateTempMax, 'Highest', 'rgba(255,255,0)',this.minTempof5DaysToraphLimit
+          ,this.maxTempof5DaysToGrphLimit);
 
-        // this.mOverLapGraphForWeatherPredictionServiceMin.showGrapg(this.lineChartMin, this.lineCanvasMin, this.mDate
-        //   , this.mDateTempMin, 'Lowest', 'rgba(75,192,192)',this.minTempof5DaysToraphLimit
-        //   ,this.maxTempof5DaysToGrphLimit);
+        this.mOverLapGraphForWeatherPredictionServiceMin.showGrapg(this.lineChartMin, this.lineCanvasMin, this.mDate
+          , this.mDateTempMin, 'Lowest', 'rgba(75,192,192)',this.minTempof5DaysToraphLimit
+          ,this.maxTempof5DaysToGrphLimit);
 
-        //   this.mOverLapGraphForWeatherPredictionServiceBck.showGrapg(this.lineChartBckGround, this.lineCanvasBckGround, this.mDate
-        //     , [this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit,
-        //        this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit,
-        //        this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit], 
-        //        '', 'rgba(75,192,192)',this.minTempof5DaysToraphLimit,
-        //        this.maxTempof5DaysToGrphLimit);
+          this.mOverLapGraphForWeatherPredictionServiceBck.showGrapg(this.lineChartBckGround, this.lineCanvasBckGround, this.mDate
+            , [this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit,
+               this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit,
+               this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit], 
+               '', 'rgba(75,192,192)',this.minTempof5DaysToraphLimit,
+               this.maxTempof5DaysToGrphLimit);
 
           console.log(Math.max(...this.mDateTempMax)+"   "+Math.min(...this.mDateTempMin))
 
