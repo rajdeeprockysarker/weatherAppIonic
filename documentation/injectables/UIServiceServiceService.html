@@ -59,6 +59,13 @@
             <code>src/app/uiservice-service.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Inject to root of app</p>
+
+            </p>
 
 
 
@@ -125,12 +132,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/uiservice-service.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/uiservice-service.service.ts:13</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor description</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -139,6 +148,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -153,6 +163,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>From ionic/angular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -192,14 +206,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/uiservice-service.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/uiservice-service.service.ts:49</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Dismiss Loading Dialog</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -233,14 +249,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/uiservice-service.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/uiservice-service.service.ts:35</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Show Loading Dialog</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -250,6 +268,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -264,6 +283,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>UI Loading Message</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -308,10 +331,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/uiservice-service.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/uiservice-service.service.ts:24</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Loader nstace create</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -335,10 +364,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/uiservice-service.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/uiservice-service.service.ts:29</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Continue show loading dialog</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -350,18 +385,38 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { LoadingController } from &#x27;@ionic/angular&#x27;;
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
+/**
+ * Service for UILoading
+*/
 export class UIServiceServiceService {
 
+/**
+ * Constructor description
+ * @param {LoadingController} loading From ionic/angular
+ */
   constructor(private loading: LoadingController) { }
 
-
+/**
+ * Loader nstace create
+ */
   private loader: HTMLIonLoadingElement;
+
+/**
+ * Continue show loading dialog
+ */
   private loaderLoading &#x3D; false;
 
+  /**
+   * Show Loading Dialog
+   * @param message UI Loading Message
+   */
   public showLoading(message: string) {
       this.loaderLoading &#x3D; true;
       this.loading.create({
@@ -373,6 +428,9 @@ export class UIServiceServiceService {
       });
   }
 
+  /**
+   * Dismiss Loading Dialog
+   */
   public dismissLoading() {
       const interval &#x3D; setInterval(() &#x3D;&gt; {
           if (this.loader || !this.loaderLoading) {
