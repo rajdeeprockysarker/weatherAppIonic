@@ -1,13 +1,28 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: 'root'
 })
 
+/**
+ * Service for Toast
+*/
 export class UIToastService {
+  
 
+ /**
+ * Constructor description
+ * @param {ToastController} toastController From ionic/angular
+ */
   constructor(public toastController: ToastController) { }
+
+/**
+* Network issue Toast
+*/
   public async presentToast() {
     const toast = await this.toastController.create({
       message: 'Network issue ...',
@@ -17,6 +32,9 @@ export class UIToastService {
     toast.present();
   }
 
+/**
+* Toast With Option
+*/
   public async presentToastWithOptions() {
     const toast = await this.toastController.create({
       header: 'Toast header',
