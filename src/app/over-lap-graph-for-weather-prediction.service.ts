@@ -48,7 +48,8 @@ export class OverLapGraphForWeatherPredictionService {
           tooltips: {
             enabled: true
           },
-          responsive: true,
+          responsive: true, 
+          maintainAspectRatio: false,
           scales: {
             xAxes: [
               {

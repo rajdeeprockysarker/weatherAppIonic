@@ -14,26 +14,26 @@
         <ion-card class="ion-no-margin content-bg">
           <ion-card-header>
              <ion-searchbar placeholder="Search Location" ></ion-searchbar>
-             <ion-card-title class="ion-margin-start">Weather for Pune , India</ion-card-title>
+             <ion-card-title class="ion-margin-start">Weather for {{mCity}}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-grid>
               <ion-row>
                 <ion-col size="6">
-                    <ion-text class="temp-text ion-margin-start">8°C</ion-text>
+                    <ion-text class="temp-text ion-margin-start">{{mCurrentTemp}}°C</ion-text>
                     <br>
                     <ion-text class="ion-margin-start temp-label">
                         AND RISING
                     </ion-text>
                     <br>
                     <ion-text class="desc-label ion-margin-start " >
-                        Light Rain
+                        {{mWeather}}
                     </ion-text>
                 </ion-col>
                 <ion-col size="6">
                    <ion-item lines="none" > 
                         <ion-thumbnail slot="end">
-                          <img src="https://developer.accuweather.com/sites/default/files/01-s.png">                        </ion-thumbnail>
+                          <img src={{mCurrentWeatherIcon}}>                        </ion-thumbnail>
                     </ion-item>
                 </ion-col>
               </ion-row>
@@ -60,7 +60,7 @@
                   <ion-col>
                     <ion-item lines="none"> 
                       <ion-thumbnail slot="start">
-                        <img src="https://developer.accuweather.com/sites/default/files/01-s.png">
+                        <img src="../../assets/images/precipitation_icon.png">
                       </ion-thumbnail>
                     </ion-item>
                     <ion-item lines="none">
@@ -81,7 +81,7 @@
                   <ion-col>
                     <ion-item lines="none"> 
                       <ion-thumbnail slot="start">
-                        <img src="https://developer.accuweather.com/sites/default/files/01-s.png">
+                        <img src="../../assets/images/wind_icon.png">
                       </ion-thumbnail>
                     </ion-item>
                     <ion-item lines="none">
@@ -91,7 +91,7 @@
                     </ion-item>
                     <ion-item lines="none">
                       <ion-text >
-                        8m/s
+                        {{mWind}}m/s
                       </ion-text>
                      </ion-item>
                   </ion-col>
@@ -102,7 +102,7 @@
                   <ion-col>
                     <ion-item lines="none"> 
                       <ion-thumbnail slot="start">
-                        <img src="https://developer.accuweather.com/sites/default/files/01-s.png">
+                        <img src="../../assets/images/humidity_icon.png">
                       </ion-thumbnail>
                     </ion-item>
                     <ion-item lines="none">
@@ -112,7 +112,7 @@
                     </ion-item>
                     <ion-item lines="none">
                       <ion-text >
-                        31%
+                        {{mHumidity}}
                       </ion-text>
                      </ion-item>
                   </ion-col>
@@ -138,7 +138,7 @@
             <ion-grid>
               <div scrollY="true" id="forecastContainer">
               <ion-row style="width: 800px;" >
-                <ion-col *ngFor="let day of days" class="ion-no-padding" >
+                <ion-col *ngFor="let day of mDate" class="ion-no-padding" >
                     <ion-item lines="none" class="ion-no-padding">
                       <ion-text>
                         {{day}}
@@ -164,7 +164,7 @@
       
        </ion-row>
     </div>
-  </ion-grid>
+  </ion-grid>-->
   <div id="containerchart">
 
     <div id="bck">  <canvas #lineCanvasBckGround></canvas></div>
@@ -172,5 +172,5 @@
     <div id="max"><canvas #lineCanvasMax></canvas></div>
   
   
-    </div>-->
+    </div>
 </ion-content>
