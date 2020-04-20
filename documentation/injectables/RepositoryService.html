@@ -59,6 +59,13 @@
             <code>src/app/repository.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Inject to root of app</p>
+
+            </p>
 
 
 
@@ -76,10 +83,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#a">a</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#http">http</a>
                             </li>
                         </ul>
@@ -94,10 +97,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getVallue">getVallue</a>
-                            </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getWeatherValueCurrent">getWeatherValueCurrent</a>
@@ -129,12 +128,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/repository.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/repository.service.ts:12</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor description</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -143,6 +144,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -157,6 +159,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>From angular/common/http</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -172,78 +178,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getVallue"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getVallue
-                        </b>
-                        <a href="#getVallue"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getVallue(params: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/repository.service.ts:14</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -268,14 +202,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/repository.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/repository.service.ts:45</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get Current value</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -285,6 +221,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -299,6 +236,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>CityName</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -310,7 +251,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>JSON Object or &#39;Error&#39;</p>
+
                     </div>
                 </td>
             </tr>
@@ -348,6 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get five days Value</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -357,6 +301,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -371,6 +316,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>CityName</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -382,7 +331,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>JSON Object or &#39;Error&#39;</p>
+
                     </div>
                 </td>
             </tr>
@@ -394,39 +344,6 @@
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="a"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            a</b>
-                            <a href="#a"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&quot;asdfghjkl&quot;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/repository.service.ts:10</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -448,10 +365,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/repository.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/repository.service.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">From angular/common/http</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -463,52 +385,58 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+/**
+ * Service for Get JSON from URL
+*/
 export class RepositoryService {  
   
 
-  public a:string&#x3D;&quot;asdfghjkl&quot;;
-
+ /**
+ * Constructor description
+ * @param {HttpClient} http From angular/common/http
+ */
   constructor(public http: HttpClient) { }
 
-  async getVallue(params:string) {  
 
-    const hjghj&#x3D;await this.http.get(&#x27;https://corona.lmao.ninja/&#x27;+params).toPromise().then(data &#x3D;&gt; {      
-      return data
-    }, err &#x3D;&gt; {
-      console.log(err);
-      return &quot;Error&quot;
-    });
-
-    return JSON.stringify(hjghj)   
-  
-  }
-
+/**
+ * Get five days Value
+ * @param params CityName
+ * @returns JSON Object or &#x27;Error&#x27;
+ */
   async getWeatherValueFiveDays(params:string) {  
 
-    const hjghj&#x3D;await this.http.get(&#x27;http://api.openweathermap.org/data/2.5/forecast?q&#x3D;&#x27;+params+&#x27;&amp;APPID&#x3D;d994b85acc1528b1a51fb0273b7ca7c4&#x27;).toPromise().then(data &#x3D;&gt; {      
+    const mValue&#x3D;await this.http.get(&#x27;http://api.openweathermap.org/data/2.5/forecast?q&#x3D;&#x27;+params+&#x27;&amp;APPID&#x3D;d994b85acc1528b1a51fb0273b7ca7c4&#x27;).toPromise().then(data &#x3D;&gt; {      
       return data
     }, err &#x3D;&gt; {
       console.log(err);
       return &quot;Error&quot;
     });
 
-    return JSON.stringify(hjghj)   
+    return JSON.stringify(mValue)   
   
   }
+
+  /**
+   * Get Current value
+   * @param params CityName
+   * @returns JSON Object or &#x27;Error&#x27;
+   */
   async getWeatherValueCurrent(params:string) {  
 
-    const hjghj&#x3D;await this.http.get(&#x27;http://api.openweathermap.org/data/2.5//weather?q&#x3D;&#x27;+params+&#x27;&amp;APPID&#x3D;d994b85acc1528b1a51fb0273b7ca7c4&#x27;).toPromise().then(data &#x3D;&gt; {      
+    const mValue&#x3D;await this.http.get(&#x27;http://api.openweathermap.org/data/2.5//weather?q&#x3D;&#x27;+params+&#x27;&amp;APPID&#x3D;d994b85acc1528b1a51fb0273b7ca7c4&#x27;).toPromise().then(data &#x3D;&gt; {      
       return data
     }, err &#x3D;&gt; {
       console.log(err);
       return &quot;Error&quot;
     });
 
-    return JSON.stringify(hjghj)   
+    return JSON.stringify(mValue)   
   
   }
 
