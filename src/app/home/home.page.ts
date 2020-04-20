@@ -7,51 +7,116 @@ import { UIToastService } from '../uitoast.service';
 import { TemperatureConverterService } from '../temperature-converter.service';
 import { OverLapGraphForWeatherPredictionService } from '../over-lap-graph-for-weather-prediction.service';
 
+/**
+ * Component for HomePage.ts
+ */
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 
-
+/**
+ * HomePage class
+ */
 export class HomePage {
-
+/**
+ * lineCanvasMax = Max Line Graph
+ */
   @ViewChild('lineCanvasMax', { static: true }) lineCanvasMax;
+/**
+ * lineCanvasMin = Min Line Graph
+ */
   @ViewChild('lineCanvasMin', { static: true }) lineCanvasMin;
+/**
+ * lineCanvasBckGround = Background Graph
+ */
   @ViewChild('lineCanvasBckGround', { static: true }) lineCanvasBckGround;
 
-  mMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  mData0 = [80, 80, 80, 80, 80, 80, 80, 80];
-  mData1 = [50, 49, 48, 50, 49, 48, 46];
-  mData2 = [41, 42, 40, 48, 45, 45, 41];
+/**
+ * Store 5 days Date
+ */
   mDate = [];
+/**
+ * Store 5 days Max Temperature
+ */  
   mDateTempMax = [];
+/**
+ * Store 5 days Min Temperature
+ */ 
   mDateTempMin = [];
+/**
+ * Store Max Temperature in next 5 days
+ */ 
   maxTempof5DaysToGrphLimit=0;
+/**
+ * Store Min Temperature in next 5 days
+ */
   minTempof5DaysToraphLimit=0;
+/**
+ * Value of delta for graph for resizing
+ */
   mGraphMaxMinFromTempDelta=7;
+/**
+ * Store static value for vwetical scroll
+ */
   days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
 
-
-  barChart: any;
-  doughnutChart: any;
+/**
+ * Max Chart Graph
+ */
   lineChartMax: any;
+/**
+ * Min Chart Graph
+ */  
   lineChartMin: any;
+/**
+ * Background Chart Graph
+ */  
   lineChartBckGround: any;
 
+/**
+ * City Name 
+ */  
   mCity: string;
+/**
+ * Current Temperature 
+ */ 
   mCurrentTemp: string;
+/**
+ * Current Weather Description 
+ */ 
   mWeather: string;
+/**
+ * Current Wind Speed
+ */  
   mWind: string;
+/**
+ * Current Humidity
+ */ 
   mHumidity: string;
 
-
+/**
+ * Current weather icon
+ */ 
   mCurrentWeatherIcon:string;
+/**
+ * Store five days icon
+ */   
   mFiveDaysWeatherIcon=[];
 
 
-
+/**
+ * Constructor for Homepage.ts
+ * @param mRepositoryyAPIService Instance of RepositoryyAPIService
+ * @param mUIServiceService Instance of UIServiceService
+ * @param mUIToastService Instance of UIToastService
+ * @param mTemperatureConverterService Instance of TemperatureConverterService
+ * @param mOverLapGraphForWeatherPredictionServiceMax Instance of OverLapGraphForWeatherPredictionServiceMa
+ * @param mOverLapGraphForWeatherPredictionServiceMin Instance of OverLapGraphForWeatherPredictionServiceMa
+ * @param mOverLapGraphForWeatherPredictionServiceBck Instance of OverLapGraphForWeatherPredictionServiceMa
+ */
   constructor(public mRepositoryyAPIService: RepositoryService,
     public mUIServiceService: UIServiceServiceService,
     public mUIToastService: UIToastService,
@@ -64,7 +129,11 @@ export class HomePage {
 
   }
 
-
+/**
+ * Asynchronous call 
+ * Load from 'openweathermap' URL
+ * @param mCity CityName
+ */
   async loadFromUrl(mCity: string) {
 
     this.mDate = [];
@@ -178,6 +247,10 @@ export class HomePage {
 
   }
 
+/**
+* Get image path from weather description string 
+* @param mWeatherType 
+*/
   public getWeatherIconFromAssetFolder(mWeatherType:string):string{
 
     switch (mWeatherType) {
