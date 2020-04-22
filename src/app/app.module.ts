@@ -17,7 +17,7 @@ import { TemperatureConverterService } from '../app/temperature-converter.servic
 import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-for-weather-prediction.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
+import { GetLocationLatLonService } from './get-location-lat-lon.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +33,7 @@ import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geoc
     UIToastService,
     BuisnessLogicService,
     TemperatureConverterService,
+    GetLocationLatLonService,
     OverLapGraphForWeatherPredictionService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
