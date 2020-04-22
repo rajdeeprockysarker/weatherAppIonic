@@ -122,6 +122,11 @@ mDateNameForGraphRenderOnly = [];
  */   
   mFiveDaysWeatherIcon=[];
 
+/**
+ * InputFrom SearchBox
+ */
+inputFromSearchBox: string = "";
+
 
 /**
  * Constructor for Homepage.ts
@@ -186,6 +191,7 @@ mDateNameForGraphRenderOnly = [];
     if (JSON.parse(mFiveDaysValue) == "Error") {
       this.mUIServiceService.dismissLoading();
       this.mUIToastService.presentToast();
+      this.resetVariable();
     }
     else {
 
@@ -194,6 +200,7 @@ mDateNameForGraphRenderOnly = [];
       if (JSON.parse(mFiveDaysValue) == "Error") {
         this.mUIServiceService.dismissLoading();
         this.mUIToastService.presentToast();
+        this.resetVariable();
       }
       else {
 
@@ -303,7 +310,34 @@ mDateNameForGraphRenderOnly = [];
 
   }
 
+  /**
+   * On Click From Search Icon
+   */
+  public onClickSearchBar(){
+    console.log("ONCLick"+this.inputFromSearchBox);
+    this.loadFromUrl(this.inputFromSearchBox.trim())
+  }
 
+/**
+ * 
+ */
+public resetVariable(){
+ 
+  this.mDate = [];
+  this.mDateForGraphRenderOnly = [];
+  this.mDateNameForGraphRenderOnly = [];
+  this.mDateTempMax = [];
+  this.mDateTempMin = [];
+  this.maxTempof5DaysToGrphLimit=0;
+  this.minTempof5DaysToraphLimit=0;
+  this.mCity='';
+  this.mCurrentTemp='';
+  this.mWeather=''; 
+  this.mWind='';
+  this.mHumidity='';
+  this.mFiveDaysWeatherIcon=[];
+ this.inputFromSearchBox = "";
 
+}
 
 }

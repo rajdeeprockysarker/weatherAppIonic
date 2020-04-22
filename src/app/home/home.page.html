@@ -20,9 +20,9 @@
           <ion-card-header class="ion-no-padding">
             <div class="search-bar">
               <ion-item lines="none" class="search-bar-bg ion-no-padding"> 
-                <ion-input placeholder="Search Location" class="ion-no-padding"></ion-input>
+                <ion-input placeholder="Search Location" class="ion-no-padding" [(ngModel)]="inputFromSearchBox"></ion-input>
                 <ion-buttons>
-                  <ion-button> 
+                  <ion-button (click)="onClickSearchBar()">  
                     <ion-icon  name="search-outline" class="search-icon"></ion-icon>
                   </ion-button>
                 </ion-buttons>
@@ -101,7 +101,7 @@
               <ion-row class="wind-label-row">
                 <ion-col size="12">
                   <div>
-                    <ion-text class="wind-label ion-text-wrap">Wind: 6.7 m/s Moderate Breeze </ion-text>
+                    <ion-text class="wind-label ion-text-wrap">Wind: {{mWind}} m/s Moderate Breeze </ion-text>
                   </div>
                 </ion-col>
               </ion-row>
