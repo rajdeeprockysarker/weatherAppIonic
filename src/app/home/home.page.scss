@@ -78,7 +78,7 @@ div[scrolly="true"] {
   ion-header,
   ion-toolbar,
   ion-title,
-  ion-buttons {
+  .menu-btn {
     height: 90px;
   }
   .menu-btn {
@@ -120,14 +120,28 @@ ion-title {
   padding: 10px 10px 25px 10px;
 }
 
-.search-icon{
+.search-bar-icon{
   color:#0066a1;
+  font-size: 20px;
+  padding-top: 5px;
 }
 
-.location-icon{
-  color:#0066a1;
+@media(min-width:767px){
+  .search-bar-icon{
+    font-size: 25px;
+  
+  }
 }
 
+.search-bar-btn{
+  height:42px ;
+}
+
+@media(min-width:767px){
+  .search-bar-btn{
+    height:65px;
+  }
+}
 @media(min-width:768px){
   .search-icon{
    font-size: 35px;
@@ -147,7 +161,8 @@ ion-title {
 
 .search-bar-bg{
   background-color: white;
-  height:40px
+  height: 42px;
+  
 }
 
 @media(min-width:768px){
@@ -156,6 +171,13 @@ ion-title {
   background-color: white;
   height:65px
 }
+}
+.searchbar-input{
+  background-color: white;
+}
+
+.location-col{
+  margin-right: 15px;
 }
 /*-------------------------------------------*\
    City Data Block Css

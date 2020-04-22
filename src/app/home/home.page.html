@@ -19,19 +19,27 @@
         <ion-card class="ion-no-margin content-bg">
           <ion-card-header class="ion-no-padding">
             <div class="search-bar">
-              <ion-item lines="none" class="search-bar-bg ion-no-padding"> 
-                <ion-input placeholder="Search Location" class="ion-no-padding"></ion-input>
-                <ion-buttons>
+              <ion-row  class="search-bar-bg ion-no-padding ion-align-items-stretch"> 
+                <ion-col size="9">
+                  <ion-searchbar placeholder="Search Location" class="ion-no-padding search-bar-bg" (change)="searchWeather($event)" [(ngModel)]="searchQuery"></ion-searchbar>
+                </ion-col>
+                <ion-col>
+                </ion-col>
+                <ion-col size="1">
+                  <ion-buttons class="search-bar-btn">
+                    <ion-button > 
+                      <ion-icon  name="search-outline" class="search-bar-icon"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
+                </ion-col>
+                <ion-col size="1" class="location-col">
+                <ion-buttons class="search-bar-btn">
                   <ion-button> 
-                    <ion-icon  name="search-outline" class="search-icon"></ion-icon>
+                    <ion-icon  name="location-outline" class="search-bar-icon"></ion-icon>
                   </ion-button>
                 </ion-buttons>
-                <ion-buttons>
-                  <ion-button> 
-                    <ion-icon  name="location-outline" class="location-icon"></ion-icon>
-                  </ion-button>
-                </ion-buttons>
-              </ion-item>
+                </ion-col>
+              </ion-row>
            </div>
           </ion-card-header>
           <ion-card-content class="ion-no-padding">
