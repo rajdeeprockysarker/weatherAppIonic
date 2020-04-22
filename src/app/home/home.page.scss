@@ -128,7 +128,18 @@ ion-title {
   color:#0066a1;
 }
 
-@media (min-width: 768px) {
+@media(min-width:768px){
+  .search-icon{
+   font-size: 35px;
+  
+  }
+  
+  .location-icon{
+    font-size: 35px;
+  }
+}
+
+@media(min-width: 768px) {
   .search-bar {
     padding: 15px 35px 30px 35px;
   }
@@ -136,8 +147,16 @@ ion-title {
 
 .search-bar-bg{
   background-color: white;
+  height:40px
 }
 
+@media(min-width:768px){
+
+.search-bar-bg{
+  background-color: white;
+  height:65px
+}
+}
 /*-------------------------------------------*\
    City Data Block Css
 \*-------------------------------------------*/
@@ -364,7 +383,7 @@ ion-item {
   color: #0066a1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .forecast-detail-row {
      width:600px;
   }
@@ -380,7 +399,7 @@ ion-item {
    Graph  Block Css
 \*-------------------------------------------*/
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .graph-data-row {
     width:600px;
     
