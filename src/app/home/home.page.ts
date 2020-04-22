@@ -41,6 +41,17 @@ export class HomePage {
  * Store 5 days Date
  */
   mDate = [];
+
+/**
+ * Store 5 days Date
+ */
+mDateForGraphRenderOnly = [];
+
+/**
+ * Store 5 days Date
+ */
+mDateNameForGraphRenderOnly = [];
+
 /**
  * Store 5 days Max Temperature
  */  
@@ -135,7 +146,7 @@ export class HomePage {
 
     
     this.loadFromUrl("Bengaluru");
-    this.getLatLon();
+    // this.getLatLon();
 
   }
 
@@ -193,15 +204,25 @@ export class HomePage {
         this.mHumidity = (JSON.parse(mCurrentValue).main).humidity + "%";
         this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description);
 
-        ///// Insert Date into this.mDate Array
+        /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
+        this.mDateForGraphRenderOnly=this.mBuisnessLogicService.formatDateForDateAndMonth(this.mDate);
+        // this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDate);
+        
         // for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
         //   console.log(JSON.parse(mFiveDaysValue).list[i]);
         //   var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];
         //   this.mDate.indexOf(mDateAfterAplit) === -1 ? this.mDate.push(mDateAfterAplit) : console.log();
         // }
 
-        /////// getHigh Log Temp Of Each Day /////
+        this.mDateForGraphRenderOnly=[]
+        var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+        for (let i = 0; i < this.mDate.length; i++) {
+          this.mDateForGraphRenderOnly.push(this.mDate[i].split("-")[2]+" "+monthNames[parseInt(this.mDate[i].split("-")[1])-1]);
+          }
+
+        ///// getHigh Log Temp Of Each Day /////
         // for (let i = 0; i < this.mDate.length; i++) {
         //   console.log(this.mDate[i]);
 

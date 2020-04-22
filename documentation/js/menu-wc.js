@@ -50,13 +50,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-09788099eafd439d3210e775b4888edb"' : 'data-target="#xs-components-links-module-AppModule-09788099eafd439d3210e775b4888edb"' }>
+                                            'data-target="#components-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' : 'data-target="#xs-components-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-09788099eafd439d3210e775b4888edb"' :
-                                            'id="xs-components-links-module-AppModule-09788099eafd439d3210e775b4888edb"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' :
+                                            'id="xs-components-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -65,16 +65,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AppModule-09788099eafd439d3210e775b4888edb"' : 'data-target="#xs-injectables-links-module-AppModule-09788099eafd439d3210e775b4888edb"' }>
+                                        'data-target="#injectables-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' : 'data-target="#xs-injectables-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppModule-09788099eafd439d3210e775b4888edb"' :
-                                        'id="xs-injectables-links-module-AppModule-09788099eafd439d3210e775b4888edb"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' :
+                                        'id="xs-injectables-links-module-AppModule-eb88259a35d21ceef5bbe8ec32d20b23"' }>
                                         <li class="link">
                                             <a href="injectables/BuisnessLogicService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>BuisnessLogicService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/GetCityNameGeocoderService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>GetCityNameGeocoderService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/GetLocationLatLonService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>GetLocationLatLonService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/OverLapGraphForWeatherPredictionService.html"
@@ -132,6 +140,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
                                     <a href="injectables/BuisnessLogicService.html" data-type="entity-link">BuisnessLogicService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/GetCityNameGeocoderService.html" data-type="entity-link">GetCityNameGeocoderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/GetLocationLatLonService.html" data-type="entity-link">GetLocationLatLonService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/OverLapGraphForWeatherPredictionService.html" data-type="entity-link">OverLapGraphForWeatherPredictionService</a>
