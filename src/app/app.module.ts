@@ -18,6 +18,7 @@ import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-f
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { GetLocationLatLonService } from './get-location-lat-lon.service';
+import { GetCityNameGeocoderService } from './get-city-name-geocoder.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { GetLocationLatLonService } from './get-location-lat-lon.service';
     BuisnessLogicService,
     TemperatureConverterService,
     GetLocationLatLonService,
+    GetCityNameGeocoderService,
     OverLapGraphForWeatherPredictionService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

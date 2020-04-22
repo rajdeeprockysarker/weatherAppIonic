@@ -8,6 +8,9 @@ import { TemperatureConverterService } from '../temperature-converter.service';
 import { OverLapGraphForWeatherPredictionService } from '../over-lap-graph-for-weather-prediction.service';
 import { BuisnessLogicService } from '../buisness-logic.service';
 import { GetLocationLatLonService } from '../get-location-lat-lon.service';
+import { GetCityNameGeocoderService } from '../get-city-name-geocoder.service';
+
+
 /**
  * Component for HomePage.ts
  */
@@ -126,7 +129,8 @@ export class HomePage {
     public mOverLapGraphForWeatherPredictionServiceMin: OverLapGraphForWeatherPredictionService,
     public mOverLapGraphForWeatherPredictionServiceBck: OverLapGraphForWeatherPredictionService,
     public mBuisnessLogicService:BuisnessLogicService,
-    public mGetLocationLatLonService:GetLocationLatLonService) {
+    public mGetLocationLatLonService:GetLocationLatLonService,
+    public mGetCityNameGeocoderService:GetCityNameGeocoderService) {
 
     this.loadFromUrl("Bengaluru");
     this.getLatLon();
@@ -136,9 +140,19 @@ export class HomePage {
   
   async getLatLon(){
     const valueokok=await this.mGetLocationLatLonService.getGeolocation();
-    //this.getCityNameUsingLatLon(Number(valueokok.split("---")[0]),Number(valueokok.split("---")[1]));
-    //this.value=valueokok;
+    if(valueokok!=='Error')
+     this.getCityNameUsingLatLon(Number(valueokok.split("---")[0]),Number(valueokok.split("---")[1]));
+  //  this.value=valueokok;
   }
+
+  async getCityNameUsingLatLon(lat,lon){
+    const valueokok=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
+
+    this.value=valueokok;
+  }
+
+  value;
+
 
 
 /**
