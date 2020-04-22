@@ -21,7 +21,7 @@
             <div class="search-bar">
               <ion-row  class="search-bar-bg ion-no-padding ion-align-items-stretch"> 
                 <ion-col size="9">
-                  <ion-searchbar placeholder="Search Location" class="ion-no-padding search-bar-bg"  [(ngModel)]="inputFromSearchBox"></ion-searchbar>
+                  <ion-searchbar placeholder="Search Location"  class="ion-no-padding search-bar-bg" (change)="onClickSearchBar()" [(ngModel)]="inputFromSearchBox"></ion-searchbar>
                 </ion-col>
                 <ion-col>
                 </ion-col>
@@ -233,7 +233,7 @@
                     <div class="forecast-date-label">
                       <ion-text>{{day}}</ion-text>
                     </div>
-                    <div class="">
+                    <div class="forecast-icon">
                       <ion-thumbnail slot="start" class="ion-no-margin">
                         <img src="../../assets/images/01d.png" />
                       </ion-thumbnail>
@@ -242,9 +242,9 @@
                 </ion-row>
                 <ion-row class="graph-data-row">
                   <ion-card-content class="ion-no-padding graph-container">
-                    <div id="bck"><canvas #lineCanvasBckGround></canvas></div>
-                    <div id="min"><canvas #lineCanvasMin></canvas></div>
-                    <div id="max"><canvas #lineCanvasMax></canvas></div>
+                    <div class="graph-bg"><canvas #lineCanvasBckGround></canvas></div>
+                    <div class="min-point"><canvas #lineCanvasMin></canvas></div>
+                    <div class="max-point"><canvas #lineCanvasMax></canvas></div>
                   </ion-card-content>
                <!----   <div class="ion-card-content">
                     <div id="bck"><canvas #lineCanvasBckGround></canvas></div>
