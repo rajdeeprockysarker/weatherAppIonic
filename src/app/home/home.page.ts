@@ -191,11 +191,12 @@ export class HomePage {
         this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description);
 
         ///// Insert Date into this.mDate Array
-        for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
-          console.log(JSON.parse(mFiveDaysValue).list[i]);
-          var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];
-          this.mDate.indexOf(mDateAfterAplit) === -1 ? this.mDate.push(mDateAfterAplit) : console.log();
-        }
+        this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
+        // for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
+        //   console.log(JSON.parse(mFiveDaysValue).list[i]);
+        //   var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];
+        //   this.mDate.indexOf(mDateAfterAplit) === -1 ? this.mDate.push(mDateAfterAplit) : console.log();
+        // }
 
         /////// getHigh Log Temp Of Each Day /////
         // for (let i = 0; i < this.mDate.length; i++) {
