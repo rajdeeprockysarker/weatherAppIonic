@@ -49,7 +49,7 @@ export class UIServiceServiceService {
   public dismissLoading() {
       const interval = setInterval(() => {
           if (this.loader || !this.loaderLoading) {
-              this.loader.dismiss().then(() => { this.loader = null; clearInterval(interval)});
+              this.loader.dismiss().then(() => { /*this.loader = null; */clearInterval(interval)});
           } else if (!this.loader && !this.loaderLoading) {
               clearInterval(interval);
           }

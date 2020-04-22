@@ -209,7 +209,7 @@ inputFromSearchBox: string = "";
         this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
         this.mWind = (JSON.parse(mCurrentValue).wind).speed;
         this.mHumidity = (JSON.parse(mCurrentValue).main).humidity + "%";
-        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description);
+        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description,JSON.parse(mCurrentValue).weather[0].icon);
 
         /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
@@ -319,7 +319,7 @@ inputFromSearchBox: string = "";
   }
 
 /**
- * 
+ *  Reset all variable
  */
 public resetVariable(){
  
@@ -335,6 +335,7 @@ public resetVariable(){
   this.mWeather=''; 
   this.mWind='';
   this.mHumidity='';
+  this.mCurrentWeatherIcon="";
   this.mFiveDaysWeatherIcon=[];
  this.inputFromSearchBox = "";
 
