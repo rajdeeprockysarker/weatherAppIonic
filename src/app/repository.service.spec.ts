@@ -15,4 +15,11 @@ describe('RepositoryService', () => {
     const service: RepositoryService = TestBed.get(RepositoryService);
     expect(service).toBeTruthy();
   });
+
+  it('Check methods', () => {
+    const service: RepositoryService = TestBed.get(RepositoryService);
+    expect(service.getWeatherValueCurrent("Kolkata")).toBeTruthy();
+    expect(service.getWeatherValueFiveDays("Kolkata")).toBeTruthy();
+  });
+
 });
