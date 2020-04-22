@@ -15,6 +15,9 @@ import { UIServiceServiceService } from '../app/uiservice-service.service';
 import { UIToastService } from '../app/uitoast.service';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
 import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-for-weather-prediction.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +26,8 @@ import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-f
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    NativeGeocoder,    
     RepositoryService,
     UIServiceServiceService,
     UIToastService,
