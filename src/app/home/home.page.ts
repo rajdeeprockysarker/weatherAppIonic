@@ -157,16 +157,16 @@ inputFromSearchBox: string = "";
 
   
   async getLatLon(){
-    const valueokok=await this.mGetLocationLatLonService.getGeolocation();
-    if(valueokok!=='Error')
-     this.getCityNameUsingLatLon(Number(valueokok.split("---")[0]),Number(valueokok.split("---")[1]));
+    const valueFromLocationService=await this.mGetLocationLatLonService.getGeolocation();
+    if(valueFromLocationService!=='Error')
+     this.getCityNameUsingLatLon(Number(valueFromLocationService.split("---")[0]),Number(valueFromLocationService.split("---")[1]));
   //  this.value=valueokok;
   }
 
   async getCityNameUsingLatLon(lat,lon){
-    const valueokok=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
-
-    this.value=valueokok;
+    const cityAndCuntryCode=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
+    this.loadFromUrl(cityAndCuntryCode);
+    this.value=cityAndCuntryCode;
   }
 
   value;
@@ -339,6 +339,13 @@ public resetVariable(){
   this.mFiveDaysWeatherIcon=[];
  this.inputFromSearchBox = "";
 
+}
+
+/**
+ * Search with current location
+ */
+public onClickLoction(){
+  this.getLatLon();
 }
 
 }
