@@ -100,6 +100,7 @@ export class HomePage {
  * Current Humidity
  */ 
   mHumidity: string;
+  
 
 /**
  * Current weather icon
@@ -132,6 +133,7 @@ export class HomePage {
     public mGetLocationLatLonService:GetLocationLatLonService,
     public mGetCityNameGeocoderService:GetCityNameGeocoderService) {
 
+    
     this.loadFromUrl("Bengaluru");
     this.getLatLon();
 
@@ -152,6 +154,7 @@ export class HomePage {
   }
 
   value;
+
 
 
 
@@ -257,18 +260,18 @@ export class HomePage {
 
 
         this.mOverLapGraphForWeatherPredictionServiceMax.showGrapg(this.lineChartMax, this.lineCanvasMax, this.mDate,
-          this.mDateTempMax, 'Highest', 'rgba(255,255,0)',this.minTempof5DaysToraphLimit
+          this.mDateTempMax, 'Highest', 'rgba(225,217,104)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);
 
         this.mOverLapGraphForWeatherPredictionServiceMin.showGrapg(this.lineChartMin, this.lineCanvasMin, this.mDate
-          , this.mDateTempMin, 'Lowest', 'rgba(75,192,192)',this.minTempof5DaysToraphLimit
+          , this.mDateTempMin, 'Lowest', 'rgba(15,148,225)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);
 
           this.mOverLapGraphForWeatherPredictionServiceBck.showGrapg(this.lineChartBckGround, this.lineCanvasBckGround, this.mDate
             , [this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit,
                this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit,
                this.maxTempof5DaysToGrphLimit,this.maxTempof5DaysToGrphLimit], 
-               '', 'rgba(75,192,192)',this.minTempof5DaysToraphLimit,
+               '', 'rgba(15,148,225)',this.minTempof5DaysToraphLimit,
                this.maxTempof5DaysToGrphLimit);
 
           console.log(Math.max(...this.mDateTempMax)+"   "+Math.min(...this.mDateTempMin))

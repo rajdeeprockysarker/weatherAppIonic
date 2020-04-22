@@ -49,12 +49,13 @@ export class OverLapGraphForWeatherPredictionService {
               );
               ctx.textAlign = "center";
               ctx.textBaseline = "bottom";
-
+             
+            
               this.data.datasets.forEach(function (dataset, i) {
                 const meta = chartInstance.controller.getDatasetMeta(i);
                 meta.data.forEach(function (bar, index) {
                   const data = dataset.data[index];
-                  ctx.fillStyle = "#000";
+                  
                   if(index!=5)
                   ctx.fillText(data, bar._model.x +10, bar._model.y - 2);
                   else
@@ -118,7 +119,7 @@ export class OverLapGraphForWeatherPredictionService {
               pointHoverRadius: 5,
               pointHoverBackgroundColor: 'rgba(75,192,192,1)',
               pointHoverBorderColor: 'rgba(220,220,220,1)',
-              pointHoverBorderWidth: 2,
+              pointHoverBorderWidth: 1,
               pointRadius: 1,
               pointHitRadius: 10,
               data: mDateTemp,

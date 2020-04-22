@@ -1,3 +1,20 @@
+/*-------------------------------------------*\
+  *    home.page.scss
+  * 
+  *    Index
+  *      -Global block
+  *      -Header Toolbar
+  *      -City Data Block
+  *      -Details  Block
+  *      -Forecast Block
+  *      -Graph Block
+  *
+  *
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+    Global block csss
+\*-------------------------------------------*/
 #container {
   text-align: center;
 
@@ -29,93 +46,368 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
-  .temp-text{
 
-    font-size:3.3rem;
-  }
-
-  .temp-label{
-font-size:1rem;
-  }
-
-  .desc-label{
-    font-size:1.5rem;
-    font-weight: bold;
-    margin-top: 30px;
-  }
-
-  .card-header{
-    font-size:1.2rem;
-    font-weight: bold;
-    margin-top: 30px;
-  }
-
-  .content-bg {
-    background-image:url('../../assets/icon/Bg_Image_Mobile.png')  !important ;
-    background-repeat: no-repeat;
-    background-position: center; 
-  }
-
-
-  ion-item{
-    --background:rgba(0, 0, 0, 0);
-  }
-
-  #forecastContainer{
-    height: 100px;
-}
-
-div[scrollx=true] {
+div[scrollx="true"] {
   position: relative;
   overflow: hidden;
 }
 
-div[scrollx=true] {
+div[scrollx="true"] {
   overflow-x: auto;
 }
 
-div[scrolly=true] {
+div[scrolly="true"] {
   overflow-y: auto;
 }
-
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-
-#containerchart {
-  width: 100%;
-  height: 150px;
-  position: relative;   
-  border: #000 solid 1px;
+#top,
+#bottom {
+  float: none;
+  overflow: hidden;
 }
-#bck {
-  width: 100%;
-  height: 150px;
-  border: #000 1px solid;
+
+/*-------------------------------------------*\
+    Header Toolbar Css
+\*-------------------------------------------*/
+
+@media (min-width: 768px) {
+  ion-header,
+  ion-toolbar,
+  ion-title,
+  ion-buttons {
+    height: 90px;
+  }
+  .menu-btn {
+    padding-left: 23px !important;
+  }
+}
+
+.menu-btn {
+  padding-left: 8px;
+  margin-left: 0px;
+}
+
+
+ion-title {
   position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+@media (max-width: 360px) {
+  ion-title {
+    font-size: 19px;
+  }
+}
+
+.content-bg {
+  background-image: url("../../assets/icon/Bg_Image_Mobile.png") !important ;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0px;
+}
+
+.search-bar {
+  padding: 10px 10px 25px 10px;
+}
+
+.search-icon{
+  color:#0066a1;
+}
+
+.location-icon{
+  color:#0066a1;
+}
+
+@media (min-width: 768px) {
+  .search-bar {
+    padding: 15px 35px 30px 35px;
+  }
+}
+
+.search-bar-bg{
+  background-color: white;
+}
+
+/*-------------------------------------------*\
+   City Data Block Css
+\*-------------------------------------------*/
+.city-details-container {
+  padding-left: 25px;
+}
+
+@media (min-width: 768px) {
+  .city-details-container {
+    padding-left: 50px;
+  }
+}
+
+.city-name-label {
+  font-size: 23px;
+}
+.city-name-row {
+  padding-bottom: 40px;
+}
+@media (min-width: 768px) {
+  .city-name-row {
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .city-name-label {
+    font-size: 19px;
+  }
+}
+/**
+.city-temp-div{
+padding-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .city-temp-div{
+    padding-bottom: 15px;
+    }
+}**/
+
+.temp-label {
+  font-size: 53px;
+  width: 100%;
+}
+
+.desc-label-div {
+  padding-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .desc-label-div {
+    padding-bottom: 40px;
+  }
+}
+.desc-label {
+  font-size: 14px;
+}
+
+.weather-label-div {
+  padding-bottom: 2px;
+}
+
+.weather-label {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.wind-label-row {
+  padding-bottom: 10px;
+}
+.wind-label {
+  font-size: 14px;
+}
+
+.weather-icon ion-thumbnail {
+  min-width: 4rem;
+  min-height: 4rem;
+}
+ion-item {
+  --background: rgba(0, 0, 0, 0);
+}
+
+@media (min-width: 768px) {
+  .weather-icon ion-thumbnail {
+    min-width: 7rem;
+    min-height: 7rem;
+  }
+}
+
+.weather-icon {
+  padding-right: 25px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .weather-icon {
+    padding-right: 35px;
+    padding-top: 20px;
+  }
+}
+
+/*-------------------------------------------*\
+   Details  Block Css
+\*-------------------------------------------*/
+.weather-details-container {
+  margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .weather-details-container {
+    margin: 20px 35px 0px 35px;
+  }
+}
+
+.custom-card {
+  border-radius: 0px;
+}
+.card-header-label {
+  font-size: 17px;
+}
+
+.card-header {
+  height: 50px;
+}
+
+@media (min-width: 768px) {
+  .card-header {
+    height: 65px;
+    padding: 22px 0px 22px 20px;
+  }
+  .card-header-label {
+    height: 65px;
+  }
+}
+
+.custom-detail-row-md {
+  height: 140px;
+  padding: 0px 35px 0px 35px;
+}
+
+@media (min-width: 768px) {
+  .custom-detail-row-md {
+    display: none;
+  }
+}
+
+.custom-detail-row-lg {
+  height: 135px;
+  padding: 12px 35px 12px 35px;
+}
+
+@media (max-width: 767px) {
+  .custom-detail-row-lg {
+    display: none;
+  }
+}
+
+.detail-icon {
+  padding-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .detail-icon {
+    float: right;
+    padding-right: 35px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detail-icon ion-thumbnail {
+    max-width: 2.2rem;
+    max-height: 2.2rem;
+    margin: auto;
+  }
+}
+
+.detail-desc-label {
+  font-size: 16px;
+  padding-top: 15px;
+  text-align: center;
+  color: #0066a1;
+}
+
+@media (min-width: 768px) {
+  .detail-desc-label {
+    font-size: 16px;
+    text-align: center;
+    color: #0066a1;
+  }
+}
+
+.detail-data-label {
+  font-size: 23px;
+  text-align: center;
+  color: #0066a1;
+}
+
+@media (min-width: 768px) {
+  .humidity-col {
+    padding-left: 220px;
+  }
+}
+
+/*-------------------------------------------*\
+   Forecast Block Css
+\*-------------------------------------------*/
+
+.forecast-details-container {
+  margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+  .forecast-details-container {
+    margin: 20px 35px 0px 35px;
+  }
+}
+
+.forecast-day-label {
+  color: #0066a1;
+}
+
+.forecast-date-label {
+  color: #0066a1;
+}
+
+@media (max-width: 768px) {
+  .forecast-detail-row {
+     width:600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .forecast-detail-row {
+    height: 120px;
+  }
+}
+
+/*-------------------------------------------*\
+   Graph  Block Css
+\*-------------------------------------------*/
+
+@media (max-width: 768px) {
+  .graph-data-row {
+    width:600px;
+    
+  }
+}
+
+#bck {
+  height: 75px;
   z-index: 0;
   top: 10px;
 }
 #max {
   width: 100%;
-  height: 150px;
-  border: #000 1px solid;
-  position: absolute;  
+  height: 60px;
+  position: absolute;
   z-index: 1;
   top: 10px;
 }
 #min {
   width: 100%;
-  height: 150px;
-  border: #000 1px solid;
+  height: 60px;
   position: absolute;
   z-index: 2;
   top: 10px;
 }
-#top,
-#bottom {
-    float: none;
-    overflow: hidden;
+
+.graph-container {
+  width: 100%;
+  background-color: #0e94e1;
 }
