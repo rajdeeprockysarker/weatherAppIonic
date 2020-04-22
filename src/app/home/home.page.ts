@@ -6,7 +6,7 @@ import { UIServiceServiceService } from '../uiservice-service.service';
 import { UIToastService } from '../uitoast.service';
 import { TemperatureConverterService } from '../temperature-converter.service';
 import { OverLapGraphForWeatherPredictionService } from '../over-lap-graph-for-weather-prediction.service';
-
+import { BuisnessLogicService } from '../buisness-logic.service';
 /**
  * Component for HomePage.ts
  */
@@ -123,7 +123,8 @@ export class HomePage {
     public mTemperatureConverterService: TemperatureConverterService,
     public mOverLapGraphForWeatherPredictionServiceMax: OverLapGraphForWeatherPredictionService,
     public mOverLapGraphForWeatherPredictionServiceMin: OverLapGraphForWeatherPredictionService,
-    public mOverLapGraphForWeatherPredictionServiceBck: OverLapGraphForWeatherPredictionService) {
+    public mOverLapGraphForWeatherPredictionServiceBck: OverLapGraphForWeatherPredictionService,
+    public mBuisnessLogicService:BuisnessLogicService) {
 
     this.loadFromUrl("Bengaluru");
 
@@ -162,7 +163,7 @@ export class HomePage {
         this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
         this.mWind = (JSON.parse(mCurrentValue).wind).speed;
         this.mHumidity = (JSON.parse(mCurrentValue).main).humidity + "%";
-        this.mCurrentWeatherIcon=this.getWeatherIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description);
+        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description);
 
         ///// Insert Date into this.mDate Array
         for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
@@ -184,14 +185,14 @@ export class HomePage {
             if (mDateAfterAplit == this.mDate[i]) {
               if (mHeigh == 0 && mLow == 0) {
                 mHeigh = JSON.parse(mFiveDaysValue).list[j].main.temp_max;
-                mWeatherIcon=this.getWeatherIconFromAssetFolder(JSON.parse(mFiveDaysValue).list[j].weather[0].icon);
+                mWeatherIcon=this.mBuisnessLogicService.getWeatherIconFromAssetFolder(JSON.parse(mFiveDaysValue).list[j].weather[0].icon);
                 mLow = JSON.parse(mFiveDaysValue).list[j].main.temp_min;
                 continue;
               }
               else {
                 if (mHeigh < JSON.parse(mFiveDaysValue).list[j].main.temp_max) {
                   mHeigh = JSON.parse(mFiveDaysValue).list[j].main.temp_max;
-                  mWeatherIcon=this.getWeatherIconFromAssetFolder(JSON.parse(mFiveDaysValue).list[j].weather[0].icon);
+                  mWeatherIcon=this.mBuisnessLogicService.getWeatherIconFromAssetFolder(JSON.parse(mFiveDaysValue).list[j].weather[0].icon);
                 }
                 if (mLow > JSON.parse(mFiveDaysValue).list[j].main.temp_min) {
                   mLow = JSON.parse(mFiveDaysValue).list[j].main.temp_min;
@@ -247,99 +248,7 @@ export class HomePage {
 
   }
 
-/**
-* Get image path from weather description string 
-* @param mWeatherType 
-*/
-  public getWeatherIconFromAssetFolder(mWeatherType:string):string{
 
-    switch (mWeatherType) {
-      case "clear sky": {
-         return "../../assets/images/clear_sky.png";
-         break;
-      }
-     
-      case "few clouds": {
-        return "../../assets/images/few_clouds.png";
-         break;
-      }
-     
-      case "scattered clouds": {
-        return "../../assets/images/scattered_clouds.png";
-         break;
-      }
-     
-      case "broken clouds": {
-        return "../../assets/images/broken_clouds.png";
-         break;
-      }
-      case "shower rain": {
-        return "../../assets/images/shower_rain.png";
-        break;
-     }
-      case "rain": {
-        return "../../assets/images/rain.png";
-        break;
-     }
-      case "snow": {
-        return "../../assets/images/snow.png";
-        break;
-     }
-
-     case "mist": {
-      return "../../assets/images/mist.png";
-      break;
-   }
-   case "mist": {
-    return "../../assets/images/mist.png";
-    break;
- }
- 
- case "01d": {
-  return "../../assets/images/01d.png";
-  break;
-}
-  
-case "02d": {
-  return "../../assets/images/02d.png";
-  break;
-}
-case "03d": {
-  return "../../assets/images/03d.png";
-  break;
-}
-
-case "04d": {
-  return "../../assets/images/04d.png";
-  break;
-}
-case "09d": {
-  return "../../assets/images/09d.png";
-  break;
-}
-case "10d": {
-  return "../../assets/images/10d.png";
-  break;
-}
-case "11d": {
-  return "../../assets/images/11d.png";
-  break;
-}
-case "13d": {
-  return "../../assets/images/13d.png";
-  break;
-}
-case "50d": {
-  return "../../assets/images/50d.png";
-  break;
-}
-default: {
-        return "../../assets/images/clear_sky.png";
-         break;
-      }
-   }
-
-  }
 
 
 }

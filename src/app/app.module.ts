@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RepositoryService } from '../app/repository.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BuisnessLogicService } from '../app/buisness-logic.service';
 import { UIServiceServiceService } from '../app/uiservice-service.service';
 import { UIToastService } from '../app/uitoast.service';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
@@ -26,6 +26,7 @@ import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-f
     RepositoryService,
     UIServiceServiceService,
     UIToastService,
+    BuisnessLogicService,
     TemperatureConverterService,
     OverLapGraphForWeatherPredictionService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
