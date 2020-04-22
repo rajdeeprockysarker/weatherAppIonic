@@ -21,20 +21,20 @@
             <div class="search-bar">
               <ion-row  class="search-bar-bg ion-no-padding ion-align-items-stretch"> 
                 <ion-col size="9">
-                  <ion-searchbar placeholder="Search Location" class="ion-no-padding search-bar-bg" (change)="searchWeather($event)" [(ngModel)]="searchQuery"></ion-searchbar>
+                  <ion-searchbar placeholder="Search Location" class="ion-no-padding search-bar-bg"  [(ngModel)]="inputFromSearchBox"></ion-searchbar>
                 </ion-col>
                 <ion-col>
                 </ion-col>
                 <ion-col size="1">
                   <ion-buttons class="search-bar-btn">
-                    <ion-button > 
+                    <ion-button (click)="onClickSearchBar()" > 
                       <ion-icon  name="search-outline" class="search-bar-icon"></ion-icon>
                     </ion-button>
                   </ion-buttons>
                 </ion-col>
                 <ion-col size="1" class="location-col">
                 <ion-buttons class="search-bar-btn">
-                  <ion-button> 
+                  <ion-button (click)="onClickLoction()"> 
                     <ion-icon  name="location-outline" class="search-bar-icon"></ion-icon>
                   </ion-button>
                 </ion-buttons>
@@ -109,7 +109,7 @@
               <ion-row class="wind-label-row">
                 <ion-col size="12">
                   <div>
-                    <ion-text class="wind-label ion-text-wrap">Wind: 6.7 m/s Moderate Breeze </ion-text>
+                    <ion-text class="wind-label ion-text-wrap">Wind: {{mWind}} m/s Moderate Breeze </ion-text>
                   </div>
                 </ion-col>
               </ion-row>

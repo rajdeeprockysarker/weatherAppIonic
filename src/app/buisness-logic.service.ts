@@ -7,12 +7,16 @@ import { TemperatureConverterService } from '../app/temperature-converter.servic
 export class BuisnessLogicService {
 
   constructor(public mTemperatureConverterService:TemperatureConverterService) { }
-
+/**
+ * Declar url for image fetch from server
+ */
+  url="http://openweathermap.org/img/w/";
   /**
   * Get image path from weather description string 
   * @param mWeatherType 
+  * @param icon
   */
-  public getWeatherBannerIconFromAssetFolder(mWeatherType: string): string {
+  public getWeatherBannerIconFromAssetFolder(mWeatherType: string,icon:string): string {
 
     switch (mWeatherType) {
       case "clear sky": {
@@ -51,14 +55,26 @@ export class BuisnessLogicService {
         return "../../assets/images/mist.png";
         break;
       }
-      case "mist": {
-        return "../../assets/images/mist.png";
+      case "thunderstorm": {
+        return "../../assets/images/thunderstorm.png";
+        break;
+      }
+      case "cleat sky night": {
+        return "../../assets/images/cleat_sky_night.png";
+        break;
+      }
+      case "few clouds night": {
+        return "../../assets/images/few-Clouds_night.png";
+        break;
+      }
+      case "rain night": {
+        return "../../assets/images/rain_night.png";
         break;
       }
 
 
       default: {
-        return "../../assets/images/clear_sky.png";
+        return this.url+icon+".png";
         break;
       }
     }
@@ -178,11 +194,39 @@ public getNoOfDays(mFiveDaysValue){
   var mDate = [];
   for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
     console.log(JSON.parse(mFiveDaysValue).list[i]);
-    var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];
+    var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];   
     mDate.indexOf(mDateAfterAplit) === -1 ? mDate.push(mDateAfterAplit) : console.log();
   }
   return mDate;
 }
 
+public formatDateForDateAndMonth(mDate){
+  var mFormatedDate=[];
+  var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+  for (let i = 0; i < mDate.length; i++) {
+  mFormatedDate.push(mDate[i].split("-")[2]+" "+monthNames[parseInt(mDate[i].split("-")[1])-1]);
+  }
+      return mFormatedDate;
+}
+
+public getDayOfWeek(mDate){
+  var mFormatedDate=[];
+
+ var dayNames = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+ for (let i = 0; i < mDate.length; i++) {
+   if(i=0){
+    mFormatedDate.push('Today');
+   }
+   else{
+    const mDay = new Date(mDate[i]);
+    const day = mDay.getDay();
+    mFormatedDate.push(dayNames[day])
+   }
+ }
+// Sunday - Saturday : 0 - 6
+
+return mFormatedDate;
+}
 
 }

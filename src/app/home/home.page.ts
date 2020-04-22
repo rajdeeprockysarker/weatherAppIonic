@@ -41,6 +41,17 @@ export class HomePage {
  * Store 5 days Date
  */
   mDate = [];
+
+/**
+ * Store 5 days Date
+ */
+mDateForGraphRenderOnly = [];
+
+/**
+ * Store 5 days Date
+ */
+mDateNameForGraphRenderOnly = [];
+
 /**
  * Store 5 days Max Temperature
  */  
@@ -111,6 +122,11 @@ export class HomePage {
  */   
   mFiveDaysWeatherIcon=[];
 
+/**
+ * InputFrom SearchBox
+ */
+inputFromSearchBox: string = "";
+
 
 /**
  * Constructor for Homepage.ts
@@ -135,22 +151,22 @@ export class HomePage {
 
     
     this.loadFromUrl("Bengaluru");
-    this.getLatLon();
+    // this.getLatLon();
 
   }
 
   
   async getLatLon(){
-    const valueokok=await this.mGetLocationLatLonService.getGeolocation();
-    if(valueokok!=='Error')
-     this.getCityNameUsingLatLon(Number(valueokok.split("---")[0]),Number(valueokok.split("---")[1]));
+    const valueFromLocationService=await this.mGetLocationLatLonService.getGeolocation();
+    if(valueFromLocationService!=='Error')
+     this.getCityNameUsingLatLon(Number(valueFromLocationService.split("---")[0]),Number(valueFromLocationService.split("---")[1]));
   //  this.value=valueokok;
   }
 
   async getCityNameUsingLatLon(lat,lon){
-    const valueokok=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
-
-    this.value=valueokok;
+    const cityAndCuntryCode=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
+    this.loadFromUrl(cityAndCuntryCode);
+    this.value=cityAndCuntryCode;
   }
 
   value;
@@ -175,6 +191,7 @@ export class HomePage {
     if (JSON.parse(mFiveDaysValue) == "Error") {
       this.mUIServiceService.dismissLoading();
       this.mUIToastService.presentToast();
+      this.resetVariable();
     }
     else {
 
@@ -183,6 +200,7 @@ export class HomePage {
       if (JSON.parse(mFiveDaysValue) == "Error") {
         this.mUIServiceService.dismissLoading();
         this.mUIToastService.presentToast();
+        this.resetVariable();
       }
       else {
 
@@ -191,17 +209,27 @@ export class HomePage {
         this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
         this.mWind = (JSON.parse(mCurrentValue).wind).speed;
         this.mHumidity = (JSON.parse(mCurrentValue).main).humidity + "%";
-        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description);
+        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description,JSON.parse(mCurrentValue).weather[0].icon);
 
-        ///// Insert Date into this.mDate Array
+        /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
+        this.mDateForGraphRenderOnly=this.mBuisnessLogicService.formatDateForDateAndMonth(this.mDate);
+        // this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDate);
+        
         // for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
         //   console.log(JSON.parse(mFiveDaysValue).list[i]);
         //   var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];
         //   this.mDate.indexOf(mDateAfterAplit) === -1 ? this.mDate.push(mDateAfterAplit) : console.log();
         // }
 
-        /////// getHigh Log Temp Of Each Day /////
+        this.mDateForGraphRenderOnly=[]
+        var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+        for (let i = 0; i < this.mDate.length; i++) {
+          this.mDateForGraphRenderOnly.push(this.mDate[i].split("-")[2]+" "+monthNames[parseInt(this.mDate[i].split("-")[1])-1]);
+          }
+
+        ///// getHigh Log Temp Of Each Day /////
         // for (let i = 0; i < this.mDate.length; i++) {
         //   console.log(this.mDate[i]);
 
@@ -282,7 +310,42 @@ export class HomePage {
 
   }
 
+  /**
+   * On Click From Search Icon
+   */
+  public onClickSearchBar(){
+    console.log("ONCLick"+this.inputFromSearchBox);
+    this.loadFromUrl(this.inputFromSearchBox.trim())
+  }
 
+/**
+ *  Reset all variable
+ */
+public resetVariable(){
+ 
+  this.mDate = [];
+  this.mDateForGraphRenderOnly = [];
+  this.mDateNameForGraphRenderOnly = [];
+  this.mDateTempMax = [];
+  this.mDateTempMin = [];
+  this.maxTempof5DaysToGrphLimit=0;
+  this.minTempof5DaysToraphLimit=0;
+  this.mCity='';
+  this.mCurrentTemp='';
+  this.mWeather=''; 
+  this.mWind='';
+  this.mHumidity='';
+  this.mCurrentWeatherIcon="";
+  this.mFiveDaysWeatherIcon=[];
+ this.inputFromSearchBox = "";
 
+}
+
+/**
+ * Search with current location
+ */
+public onClickLoction(){
+  this.getLatLon();
+}
 
 }
