@@ -1,14 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Chart } from 'chart.js';
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Service for Graph
+*/
 export class OverLapGraphForWeatherPredictionService {
 
+/**
+ * @ignore
+ */
   constructor() { }
 
-
+/**
+ * Show Weather Graph
+ * @param {Chart} lineChart Chart object
+ * @param lineCanvas Canvas object
+ * @param mDate Date array
+ * @param mDateTemp Minumun temprature
+ * @param label For hoover
+ * @param color Fill color of graph
+ * @param yAxisMin Minimum temprature of graph
+ * @param yAxisMax Minimum temprature of graph
+ */
   public showGrapg(lineChart,lineCanvas,mDate,mDateTemp,label,color,yAxisMin,yAxisMax) {
     lineChart = new Chart(lineCanvas.nativeElement,
       {

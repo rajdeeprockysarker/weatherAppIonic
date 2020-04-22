@@ -1,7 +1,7 @@
 {
   "name": "weatherAppIonic",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }

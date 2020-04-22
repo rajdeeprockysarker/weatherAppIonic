@@ -10,11 +10,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RepositoryService } from '../app/repository.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BuisnessLogicService } from '../app/buisness-logic.service';
 import { UIServiceServiceService } from '../app/uiservice-service.service';
 import { UIToastService } from '../app/uitoast.service';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
 import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-for-weather-prediction.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { GetLocationLatLonService } from './get-location-lat-lon.service';
+import { GetCityNameGeocoderService } from './get-city-name-geocoder.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,10 +27,15 @@ import { OverLapGraphForWeatherPredictionService } from '../app/over-lap-graph-f
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    NativeGeocoder,    
     RepositoryService,
     UIServiceServiceService,
     UIToastService,
+    BuisnessLogicService,
     TemperatureConverterService,
+    GetLocationLatLonService,
+    GetCityNameGeocoderService,
     OverLapGraphForWeatherPredictionService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

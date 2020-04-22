@@ -59,6 +59,13 @@
             <code>src/app/temperature-converter.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Inject to root of app</p>
+
+            </p>
 
 
 
@@ -91,24 +98,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/temperature-converter.service.ts:6</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -139,14 +128,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/app/temperature-converter.service.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/temperature-converter.service.ts:22</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Convert from Kelvin to Celcius</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -155,6 +146,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -166,6 +158,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Kelvin temperature</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -190,14 +186,26 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+/**
+ * Service for Temperature Converter
+*/
 export class TemperatureConverterService {
 
+  /**
+   * @ignore
+   */
   constructor() { }
 
+  /**
+   * Convert from Kelvin to Celcius
+   * @param params Kelvin temperature
+   */
   public kelvinToCelcius(params){
     return (params-273.15)
   }

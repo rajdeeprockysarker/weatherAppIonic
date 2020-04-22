@@ -59,6 +59,13 @@
             <code>src/app/uitoast.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Inject to root of app</p>
+
+            </p>
 
 
 
@@ -123,12 +130,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/uitoast.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/uitoast.service.ts:14</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor description</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -137,6 +146,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -151,6 +161,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>From ionic/angular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -191,14 +205,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app/uitoast.service.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/uitoast.service.ts:26</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Network issue Toast</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -233,14 +249,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/uitoast.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/uitoast.service.ts:38</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Toast With Option</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -277,10 +295,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/uitoast.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/uitoast.service.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">From ionic/angular</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -293,13 +316,28 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { ToastController } from &#x27;@ionic/angular&#x27;;
 
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 
+/**
+ * Service for Toast
+*/
 export class UIToastService {
+  
 
+ /**
+ * Constructor description
+ * @param {ToastController} toastController From ionic/angular
+ */
   constructor(public toastController: ToastController) { }
+
+/**
+* Network issue Toast
+*/
   public async presentToast() {
     const toast &#x3D; await this.toastController.create({
       message: &#x27;Network issue ...&#x27;,
@@ -309,6 +347,9 @@ export class UIToastService {
     toast.present();
   }
 
+/**
+* Toast With Option
+*/
   public async presentToastWithOptions() {
     const toast &#x3D; await this.toastController.create({
       header: &#x27;Toast header&#x27;,
