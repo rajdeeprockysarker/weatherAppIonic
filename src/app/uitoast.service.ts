@@ -21,16 +21,30 @@ export class UIToastService {
   constructor(public toastController: ToastController) { }
 
 /**
-* Network issue Toast
-*/
-  public async presentToast() {
+ * Toast with argument message
+ * @param mMessage Message
+ */
+  public async presentToastWithArgumentMessage(mMessage:string) {
     const toast = await this.toastController.create({
-      message: 'Cityname not found or check network...',
+      message: mMessage,
       duration: 1200,
       cssClass:"toast-width-class"
     });
     toast.present();
   }
+
+
+  /**
+* Network issue Toast
+*/
+public async presentToast() {
+  const toast = await this.toastController.create({
+    message: 'Cityname not found or check network...',
+    duration: 1200,
+    cssClass:"toast-width-class"
+  });
+  toast.present();
+}
 
 /**
 * Toast With Option
