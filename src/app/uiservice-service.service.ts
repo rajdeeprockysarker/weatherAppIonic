@@ -28,31 +28,44 @@ export class UIServiceServiceService {
  */
   private loaderLoading = false;
 
+ /**
+  * Loading constant 
+  * */ 
+
+  mLoading;
+
   /**
    * Show Loading Dialog
    * @param message UI Loading Message
    */
-  public showLoading(message: string) {
-      this.loaderLoading = true;
-      this.loading.create({
-          message,
-          showBackdrop: true
-      }).then(load => {
-          this.loader = load;
-          load.present().then(() => { this.loaderLoading = false; });
+  async showLoading(message: string) {
+    //   this.loaderLoading = true;
+    //   this.loading.create({
+    //       message,
+    //       showBackdrop: true
+    //   }).then(load => {
+    //       this.loader = load;
+    //       load.present().then(() => { this.loaderLoading = false; });
+    //   });
+    this.mLoading = await this.loading.create({
+        message: 'Please wait...',
+        duration: 1000
       });
+      await this.mLoading.present();
   }
 
   /**
    * Dismiss Loading Dialog
    */
-  public dismissLoading() {
-      const interval = setInterval(() => {
-          if (this.loader || !this.loaderLoading) {
-              this.loader.dismiss().then(() => { /*this.loader = null; */clearInterval(interval)});
-          } else if (!this.loader && !this.loaderLoading) {
-              clearInterval(interval);
-          }
-      }, 500);
+  async dismissLoading() {
+    //   const interval = setInterval(() => {
+    //       if (this.loader || !this.loaderLoading) {
+    //           this.loader.dismiss().then(() => { /*this.loader = null; */clearInterval(interval)});
+    //       } else if (!this.loader && !this.loaderLoading) {
+    //           clearInterval(interval);
+    //       }
+    //   }, 500);
+    const { role, data } = await this.mLoading.onDidDismiss();
   }
+
 }
