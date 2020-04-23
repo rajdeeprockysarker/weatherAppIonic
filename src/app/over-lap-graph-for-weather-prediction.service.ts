@@ -55,11 +55,19 @@ export class OverLapGraphForWeatherPredictionService {
                 const meta = chartInstance.controller.getDatasetMeta(i);
                 meta.data.forEach(function (bar, index) {
                   const data = dataset.data[index];
-                  
-                  if(index!=5)
-                  ctx.fillText(data, bar._model.x +10, bar._model.y - 2);
-                  else
-                  ctx.fillText(data, bar._model.x -6, bar._model.y - 2);
+                  if(label=="Highest"){
+                    if(index!=5)
+                      ctx.fillText(data, bar._model.x +10, bar._model.y - 4);
+                    else
+                    ctx.fillText(data, bar._model.x -6, bar._model.y - 4);
+                  }
+                  if(label=="Lowest"){
+                    if(index!=5)
+                      ctx.fillText(data, bar._model.x +10, bar._model.y +14);
+                    else
+                    ctx.fillText(data, bar._model.x -6, bar._model.y +14);
+                  }
+
                 });
               });
             }

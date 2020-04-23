@@ -25,7 +25,7 @@ export class UIToastService {
 */
   public async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Network issue ...',
+      message: 'Cityname not found or check network...',
       duration: 1200,
       cssClass:"toast-width-class"
     });
