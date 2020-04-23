@@ -11,7 +11,6 @@
 
 <!--body-content-block-start-->
 <ion-content [fullscreen]="true" color="Primary">
-
   <!--city-details-block-start-->
   <ion-grid class="ion-no-padding">
     <ion-row>
@@ -19,37 +18,41 @@
         <ion-card class="ion-no-margin content-bg">
           <ion-card-header class="ion-no-padding">
             <div class="search-bar">
-              <ion-row  class="search-bar-bg ion-no-padding ion-align-items-stretch"> 
+              <ion-row class="search-bar-bg ion-no-padding ion-align-items-stretch">
                 <ion-col size="9">
-                  <ion-searchbar 
-                    clearIcon = " never"
-                    placeholder = "Search Location" 
-                    inputmode = "search"
-                    class = "ion-no-padding search-bar-bg" 
-                    (change) = "onClickSearchBar()" 
-                    [(ngModel)] = "inputFromSearchBox"></ion-searchbar>
+                  <ion-searchbar
+                    clearIcon=" never"
+                    placeholder="Search Location"
+                    inputmode="search"
+                    class="ion-no-padding search-bar-bg"
+                    (change)="onClickSearchBar()"
+                    [(ngModel)]="inputFromSearchBox"></ion-searchbar>
                 </ion-col>
-                <ion-col>
-                </ion-col>
+                <ion-col> </ion-col>
                 <ion-col size="1">
                   <ion-buttons class="search-bar-btn">
-                    <ion-button (click)="onClickSearchBar()" > 
-                      <ion-icon  name="search-outline" class="search-bar-icon"></ion-icon>
+                    <ion-button (click)="onClickSearchBar()">
+                      <ion-icon
+                        name="search-outline"
+                        class="search-bar-icon"
+                      ></ion-icon>
                     </ion-button>
                   </ion-buttons>
                 </ion-col>
                 <ion-col size="1" class="location-col">
-                <ion-buttons class="search-bar-btn">
-                  <ion-button (click)="onClickLoction()"> 
-                    <ion-icon  name="location-outline" class="search-bar-icon"></ion-icon>
-                  </ion-button>
-                </ion-buttons>
+                  <ion-buttons class="search-bar-btn">
+                    <ion-button (click)="onClickLoction()">
+                      <ion-icon
+                        name="location-outline"
+                        class="search-bar-icon"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
                 </ion-col>
               </ion-row>
-           </div>
+            </div>
           </ion-card-header>
           <ion-card-content class="ion-no-padding">
-                    <!---- <ion-item lines="none" class="search-bar"> 
+            <!---- <ion-item lines="none" class="search-bar"> 
                           <ion-input
                             placeholder="Search Location">
                           </ion-input>
@@ -64,7 +67,7 @@
                             </ion-button> 
                           </ion-buttons>
                       </ion-item>-->
-                  <!--<ion-row>
+            <!--<ion-row>
                       <ion-col size="8">  
                       </ion-col>
                       <ion-col size="2">
@@ -83,21 +86,21 @@
                       </ion-col>
                     </ion-row> -->
             <ion-grid class="ion-no-padding city-details-container">
-              <ion-row class="city-name-row" >
+              <ion-row class="city-name-row">
                 <ion-col size="12">
                   <div>
                     <ion-text class="city-name-label">Weather for {{mCity}}</ion-text>
                   </div>
                 </ion-col>
               </ion-row>
-              <ion-row >
+              <ion-row>
                 <ion-col size="8">
                   <div>
                     <div>
                       <ion-text class="temp-label">{{mCurrentTemp}}°C</ion-text>
                     </div>
                     <div class="desc-label-div">
-                      <ion-text class="desc-label ion-text-wrap">AND RISING </ion-text>
+                      <ion-text class="desc-label ion-text-wrap">AND RISING</ion-text>
                     </div>
                     <div class="ion-text-capitalize weather-label-div">
                       <ion-text class="weather-label ion-text-wrap">{{mWeather}}</ion-text>
@@ -107,7 +110,7 @@
                 <ion-col size="4">
                   <ion-item lines="none" class="weather-icon">
                     <ion-thumbnail slot="end" class="ion-no-margin">
-                      <img src="{{mCurrentWeatherIcon}}" />
+                      <img src="{{mCurrentWeatherIcon}}"/>
                     </ion-thumbnail>
                   </ion-item>
                 </ion-col>
@@ -115,7 +118,7 @@
               <ion-row class="wind-label-row">
                 <ion-col size="12">
                   <div>
-                    <ion-text class="wind-label ion-text-wrap">Wind: {{mWind}} m/s Moderate Breeze </ion-text>
+                    <ion-text class="wind-label ion-text-wrap">Wind: {{mWind}} m/s Moderate Breeze</ion-text>
                   </div>
                 </ion-col>
               </ion-row>
@@ -129,8 +132,7 @@
 
   <!--details-block-start-->
   <ion-grid class="ion-no-padding weather-details-container">
-    
-     <!--Details block design for Smaller and Medium device-->
+    <!--Details block design for Smaller and Medium device-->
     <ion-row>
       <ion-col>
         <ion-card class="ion-no-margin custom-card">
@@ -139,8 +141,7 @@
           </ion-card-header>
           <ion-card-content class="ion-no-padding">
             <ion-grid class="ion-no-padding">
-
-          <!--Details block design for Smaller and Medium device start-->
+              <!--Details block design for Smaller and Medium device start-->
               <ion-row class="ion-justify-content-around custom-detail-row-md">
                 <ion-col size="4">
                   <div class="detail-icon">
@@ -155,16 +156,15 @@
                     <ion-text>{{mWind}}m/s</ion-text>
                   </div>
                 </ion-col>
-                <ion-col size="1" class="ion-hide-md-up">
-                </ion-col>
-                <ion-col size="4" size-md="4" >
+                <ion-col size="1" class="ion-hide-md-up"> </ion-col>
+                <ion-col size="4" size-md="4">
                   <div lines="none" class="detail-icon">
                     <ion-thumbnail slot="start" class="ion-no-margin">
                       <img src="../../assets/images/humidity_icon.png" />
                     </ion-thumbnail>
                   </div>
                   <div class="detail-desc-label">
-                    <ion-text> Humedity</ion-text>
+                    <ion-text> Humidity</ion-text>
                   </div>
                   <div class="detail-data-label">
                     <ion-text>{{mHumidity}} </ion-text>
@@ -192,14 +192,14 @@
                 </ion-col>
                 <ion-col size="2" class="humidity-col">
                   <div lines="none" class="detail-icon">
-                    <ion-thumbnail  class="ion-no-margin">
+                    <ion-thumbnail class="ion-no-margin">
                       <img src="../../assets/images/humidity_icon.png" />
                     </ion-thumbnail>
                   </div>
                 </ion-col>
                 <ion-col size="2">
                   <div class="detail-desc-label">
-                    <ion-text> Humedity</ion-text>
+                    <ion-text> Humidity</ion-text>
                   </div>
                   <div class="detail-data-label">
                     <ion-text>{{mHumidity}} </ion-text>
@@ -207,14 +207,11 @@
                 </ion-col>
               </ion-row>
               <!--Details block design for Larger device ends-->
-
             </ion-grid>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
-      
-   
   </ion-grid>
   <!--/details-block-ends-->
 
@@ -224,15 +221,15 @@
       <ion-col>
         <ion-card class="ion-no-margin custom-card">
           <ion-card-header color="primary" class="card-header">
-            <ion-text class="card-header-label ion-text-capitalize">
-              FORECAST
-            </ion-text>
+            <ion-text class="card-header-label ion-text-capitalize"> FORECAST</ion-text>
           </ion-card-header>
           <ion-card-content class="ion-no-padding">
             <ion-grid class="ion-no-padding">
               <div scrollY="true">
-                <ion-row class="forecast-detail-row ion-justify-content-center"> 
-                  <ion-col *ngFor="let icon of mFiveDaysWeatherIcon; let i=index" class="ion-no-padding">
+                <ion-row class="forecast-detail-row ion-justify-content-center">
+                  <ion-col
+                    *ngFor="let icon of mFiveDaysWeatherIcon; let i=index"
+                    class="ion-no-padding">
                     <div class="forecast-day-label">
                       <ion-text>{{days[i]}}</ion-text>
                     </div>
@@ -241,18 +238,24 @@
                     </div>
                     <div class="forecast-icon">
                       <ion-thumbnail slot="start" class="ion-no-margin">
-                        <img src="{{icon}}"/>
+                        <img src="{{icon}}" />
                       </ion-thumbnail>
                     </div>
                   </ion-col>
                 </ion-row>
                 <ion-row class="graph-data-row">
                   <ion-card-content class="ion-no-padding graph-container">
-                    <div class="graph-bg"><canvas #lineCanvasBckGround></canvas></div>
-                    <div class="min-point"><canvas #lineCanvasMin></canvas></div>
-                    <div class="max-point"><canvas #lineCanvasMax></canvas></div>
+                    <div class="graph-bg">
+                      <canvas #lineCanvasBckGround></canvas>
+                    </div>
+                    <div class="min-point">
+                      <canvas #lineCanvasMin></canvas>
+                    </div>
+                    <div class="max-point">
+                      <canvas #lineCanvasMax></canvas>
+                    </div>
                   </ion-card-content>
-               <!----   <div class="ion-card-content">
+                  <!----   <div class="ion-card-content">
                     <div id="bck"><canvas #lineCanvasBckGround></canvas></div>
                     
                   </div>-->
@@ -275,7 +278,7 @@
        </ion-row>
     </div>
   </ion-grid>-->
-  
+
   <!--/graph-block-ends-->
 </ion-content>
 <!--/body-content-block-ends-->
