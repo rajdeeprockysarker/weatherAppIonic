@@ -20,7 +20,7 @@
             <div class="search-bar">
               <ion-row class="search-bar-bg ion-no-padding ion-align-items-stretch">
                 <ion-col size="9">
-                  <ion-searchbar
+                  <ion-searchbar 
                     clearIcon=" never"
                     placeholder="Search Location"
                     inputmode="search"
@@ -51,7 +51,7 @@
               </ion-row>
             </div>
           </ion-card-header>
-          <ion-card-content class="ion-no-padding">
+          <ion-card-content class="ion-no-padding hide"> 
             <!---- <ion-item lines="none" class="search-bar"> 
                           <ion-input
                             placeholder="Search Location">
@@ -131,7 +131,7 @@
   <!--/city-details-block-ends-->
 
   <!--details-block-start-->
-  <ion-grid class="ion-no-padding weather-details-container">
+  <ion-grid class="ion-no-padding weather-details-container hide" >
     <!--Details block design for Smaller and Medium device-->
     <ion-row>
       <ion-col>
@@ -216,7 +216,7 @@
   <!--/details-block-ends-->
 
   <!--forecast-block-start-->
-  <ion-grid class="ion-no-padding forecast-details-container">
+  <ion-grid class="ion-no-padding forecast-details-container hide" >
     <ion-row>
       <ion-col>
         <ion-card class="ion-no-margin custom-card">
@@ -226,7 +226,7 @@
           <ion-card-content class="ion-no-padding">
             <ion-grid class="ion-no-padding">
               <div scrollY="true">
-                <ion-row class="forecast-detail-row ion-justify-content-center">
+                <ion-row class="forecast-detail-row ion-justify-content-center" >
                   <ion-col
                     *ngFor="let icon of mFiveDaysWeatherIcon; let i=index"
                     class="ion-no-padding">
@@ -255,10 +255,6 @@
                       <canvas #lineCanvasMax></canvas>
                     </div>
                   </ion-card-content>
-                  <!----   <div class="ion-card-content">
-                    <div id="bck"><canvas #lineCanvasBckGround></canvas></div>
-                    
-                  </div>-->
                 </ion-row>
               </div>
             </ion-grid>
@@ -269,16 +265,5 @@
   </ion-grid>
   <!--/forecast-block-ends-->
 
-  <!--graph-block-start-->
-
-  <!--- 
-  <ion-grid>
-    <div scrollY="true" id="forecastContainer">
-       <ion-row style="width: 1000px;">
-       </ion-row>
-    </div>
-  </ion-grid>-->
-
-  <!--/graph-block-ends-->
 </ion-content>
 <!--/body-content-block-ends-->

@@ -20,6 +20,8 @@ import { GetCityNameGeocoderService } from '../get-city-name-geocoder.service';
   styleUrls: ['home.page.scss'],
 })
 
+
+
 /**
  * HomePage class
  */
@@ -75,7 +77,7 @@ mDateNameForGraphRenderOnly = [];
 /**
  * Store static value for vwetical scroll
  */
-  days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+  days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
 
 /**
@@ -339,6 +341,7 @@ public resetVariable(){
   this.mFiveDaysWeatherIcon=[];
  this.inputFromSearchBox = "";
 
+
 }
 
 /**
@@ -346,6 +349,9 @@ public resetVariable(){
  */
 public onClickLoction(){
   this.getLatLon();
+  document.documentElement.style.setProperty(`--myvar`, "none");
 }
+
+
 
 }
