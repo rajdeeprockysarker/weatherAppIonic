@@ -30,7 +30,7 @@ export class RepositoryService {
       return data
     }, err => {
       console.log(err);
-      return "Error"
+      return err.statusText.toString();
     });
 
     return JSON.stringify(mValue)   
@@ -48,7 +48,7 @@ export class RepositoryService {
       return data
     }, err => {
       console.log(err);
-      return "Error"
+      return  err.statusText.toString();
     });
 
     return JSON.stringify(mValue)   

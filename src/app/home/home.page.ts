@@ -77,9 +77,11 @@ mDateNameForGraphRenderOnly = [];
 /**
  * Store static value for vwetical scroll
  */
-  days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-
-
+  days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+  /**
+ * Today In Date Count
+ */
+  mDateinDay=0;
 /**
  * Max Chart Graph
  */
@@ -129,6 +131,11 @@ mDateNameForGraphRenderOnly = [];
  */
 inputFromSearchBox: string = "";
 
+/**
+ * Visible on Data / Invisible on No-Data
+ */
+mBackgroundLayoutVisiblity=false;
+
 
 /**
  * Constructor for Homepage.ts
@@ -152,26 +159,36 @@ inputFromSearchBox: string = "";
     public mGetCityNameGeocoderService:GetCityNameGeocoderService) {
 
     
-    this.loadFromUrl("Bengaluru");
+    //this.loadFromUrl("Bengaluru");
     // this.getLatLon();
+ 
+
+    this.mDateinDay = new Date().getDay();
+    this.onClickLoction();
 
   }
 
-  
+  /**
+   * Get Lat Long From GetLocationLatLonService
+   */
   async getLatLon(){
     const valueFromLocationService=await this.mGetLocationLatLonService.getGeolocation();
     if(valueFromLocationService!=='Error')
      this.getCityNameUsingLatLon(Number(valueFromLocationService.split("---")[0]),Number(valueFromLocationService.split("---")[1]));
   //  this.value=valueokok;
   }
-
+/**
+   * Get CityName From GetCityNameGeocoderService
+   */
   async getCityNameUsingLatLon(lat,lon){
     const cityAndCuntryCode=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
+    if(cityAndCuntryCode.toString().length>0 && cityAndCuntryCode.toString()!='Error'){
     this.loadFromUrl(cityAndCuntryCode);
-    this.value = cityAndCuntryCode;
+    }
+    else{
+      this.mUIToastService.presentToastWithArgumentMessage("Problem to get current location, please retry or enable your GPS ...");
+    }
   }
-
-  value;
 
 
 
@@ -190,22 +207,29 @@ inputFromSearchBox: string = "";
     this.mUIServiceService.showLoading("Loading...");
     const mFiveDaysValue = await this.mRepositoryyAPIService.getWeatherValueFiveDays(mCity);
     //console.log(mFiveDaysValue);
-    if (JSON.parse(mFiveDaysValue) == "Error") {
+    if (JSON.parse(mFiveDaysValue) == "Unknown Error" || 
+    JSON.parse(mFiveDaysValue) == "Not Found" ) {
       this.mUIServiceService.dismissLoading();
-      this.mUIToastService.presentToast();
+      (JSON.parse(mFiveDaysValue) == "Unknown Error")?this.mUIToastService.presentToastWithArgumentMessage("Please check network connection...")
+                                                    :this.mUIToastService.presentToastWithArgumentMessage("Location not found...");      
       this.resetVariable();
+      this.mBackgroundLayoutVisiblity=false;
     }
     else {
 
       const mCurrentValue = await this.mRepositoryyAPIService.getWeatherValueCurrent(mCity);
       console.log(mCurrentValue);
-      if (JSON.parse(mFiveDaysValue) == "Error") {
+      if (JSON.parse(mFiveDaysValue) == "Unknown Error" || 
+      JSON.parse(mFiveDaysValue) == "Not Found" ) {
         this.mUIServiceService.dismissLoading();
-        this.mUIToastService.presentToast();
+        (JSON.parse(mFiveDaysValue) == "Unknown Error")?this.mUIToastService.presentToastWithArgumentMessage("Please check network connection...")
+        :this.mUIToastService.presentToastWithArgumentMessage("Location not found...");      
+
         this.resetVariable();
+        this.mBackgroundLayoutVisiblity=false;
       }
       else {
-
+        this.mBackgroundLayoutVisiblity=true;
         this.mCity = JSON.parse(mCurrentValue).name+" , "+JSON.parse(mCurrentValue).sys.country;
         this.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(mCurrentValue).main).temp)).toString() ;
         this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
@@ -216,7 +240,7 @@ inputFromSearchBox: string = "";
         /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
         this.mDateForGraphRenderOnly=this.mBuisnessLogicService.formatDateForDateAndMonth(this.mDate);
-        // this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDate);
+         this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDateinDay);
         
         // for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
         //   console.log(JSON.parse(mFiveDaysValue).list[i]);
@@ -316,15 +340,21 @@ inputFromSearchBox: string = "";
    * On Click From Search Icon
    */
   public onClickSearchBar(){
+    if(this.inputFromSearchBox.trim().length>2){
     console.log("ONCLick"+this.inputFromSearchBox);
     this.loadFromUrl(this.inputFromSearchBox.trim())
+    }
+    else{
+      this.mUIToastService.presentToastWithArgumentMessage("Please enter more than 2 characters");
+    }
+    
   }
 
 /**
  *  Reset all variable
  */
 public resetVariable(){
- 
+  this.mBackgroundLayoutVisiblity=false;
   this.mDate = [];
   this.mDateForGraphRenderOnly = [];
   this.mDateNameForGraphRenderOnly = [];

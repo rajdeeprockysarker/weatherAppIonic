@@ -238,20 +238,30 @@ public formatDateForDateAndMonth(mDate){
  * @param mDate Dates in YYYY-MM-DD format
  * @returns Day of Week
  */
-public getDayOfWeek(mDate){
+public getDayOfWeek(mDateinDay){
   var mFormatedDate=[];
 
  var dayNames = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
- for (let i = 0; i < mDate.length; i++) {
-   if(i=0){
-    mFormatedDate.push('Today');
-   }
-   else{
-    const mDay = new Date(mDate[i]);
-    const day = mDay.getDay();
-    mFormatedDate.push(dayNames[day])
-   }
- }
+ mFormatedDate.push("Today");
+ let k=mDateinDay+1;
+  for (let i=0;i<6;i++){
+      if(k==7){
+          k=0;
+      }
+      else{
+        mFormatedDate.push(dayNames[k++]);
+      }
+  } 
+//  for (let i = 0; i < mDate.length; i++) {
+//    if(i=0){
+//     mFormatedDate.push('Today');
+//    }
+//    else{
+//     const mDay = new Date(mDate[i]);
+//     const day = mDay.getDay();
+//     mFormatedDate.push(dayNames[day])
+//    }
+//  }
 // Sunday - Saturday : 0 - 6
 
 return mFormatedDate;
