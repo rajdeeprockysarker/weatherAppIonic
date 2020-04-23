@@ -26,11 +26,16 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
-/* Global design for toast */
+/* Global css for toast */
 .toast-width-class{   
     --width:50%;
 }
-/* Global design for Searchbar */
+
+ion-toast{
+    --background:white !important;
+    --color:black !important;
+   }
+/* Global css for Searchbar */
 .searchbar-input{
     background-color: white !important;
     box-shadow: none !important;
@@ -41,3 +46,14 @@
   .searchbar-search-icon{
       visibility: hidden;
   }
+
+
+  /* Global css for Fonts */
+  @font-face {
+    font-family: AppFont;
+    src: url("assets/fonts/verdana.ttf");
+    }
+
+    * {
+        font-family: 'verdana' !important;
+    }

@@ -233,6 +233,7 @@ mBackgroundLayoutVisiblity=false;
       }
       else {
         this.mBackgroundLayoutVisiblity=true;
+        document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "");
         this.mCity = JSON.parse(mCurrentValue).name+" , "+JSON.parse(mCurrentValue).sys.country;
         this.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(mCurrentValue).main).temp)).toString() ;
         this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
