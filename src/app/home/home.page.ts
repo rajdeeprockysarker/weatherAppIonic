@@ -82,7 +82,10 @@ mDateNameForGraphRenderOnly = [];
  * Today In Date Count
  */
   mDateinDay=0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> fba52560de01f40e77d34d96cbdaec9340f99d8d
 /**
  * Max Chart Graph
  */
