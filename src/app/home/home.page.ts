@@ -20,6 +20,8 @@ import { GetCityNameGeocoderService } from '../get-city-name-geocoder.service';
   styleUrls: ['home.page.scss'],
 })
 
+
+
 /**
  * HomePage class
  */
@@ -213,6 +215,7 @@ mBackgroundLayoutVisiblity=false;
                                                     :this.mUIToastService.presentToastWithArgumentMessage("Location not found...");      
       this.resetVariable();
       this.mBackgroundLayoutVisiblity=false;
+      document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "none");
     }
     else {
 
@@ -226,6 +229,7 @@ mBackgroundLayoutVisiblity=false;
 
         this.resetVariable();
         this.mBackgroundLayoutVisiblity=false;
+        document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "none");
       }
       else {
         this.mBackgroundLayoutVisiblity=true;
@@ -370,6 +374,7 @@ public resetVariable(){
   this.mFiveDaysWeatherIcon=[];
  this.inputFromSearchBox = "";
 
+
 }
 
 /**
@@ -377,6 +382,10 @@ public resetVariable(){
  */
 public onClickLoction(){
   this.getLatLon();
+  
+  
 }
+
+
 
 }
