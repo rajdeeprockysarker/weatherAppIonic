@@ -49,6 +49,7 @@ export class OverLapGraphForWeatherPredictionService {
               );
               ctx.textAlign = "center";
               ctx.textBaseline = "bottom";
+               ctx.font = "12px verdana";
              
             
               this.data.datasets.forEach(function (dataset, i) {
@@ -121,6 +122,7 @@ export class OverLapGraphForWeatherPredictionService {
               borderDash: [],
               borderDashOffset: 0.0,
               borderJoinStyle: 'round',
+              borderWidth:'1',
               pointBorderColor: 'rgba(75,192,192,1)',
               pointBackgroundColor: '#fff',
               pointBorderWidth: 1,

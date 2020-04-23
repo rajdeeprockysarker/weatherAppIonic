@@ -70,6 +70,9 @@ div[scrolly="true"] {
   overflow: hidden;
 }
 
+.hide{
+  display: var(--myvar);
+}
 /*-------------------------------------------*\
     Header Toolbar Css
 \*-------------------------------------------*/
@@ -90,7 +93,6 @@ div[scrolly="true"] {
   padding-left: 8px;
   margin-left: 0px;
 }
-
 
 ion-title {
   position: absolute;
@@ -120,63 +122,59 @@ ion-title {
   padding: 10px 10px 25px 10px;
 }
 
-.search-bar-icon{
-  color:#0066a1;
+.search-bar-icon {
+  color: #0066a1;
   font-size: 20px;
   padding-top: 5px;
 }
 
-@media(min-width:767px){
-  .search-bar-icon{
+@media (min-width: 767px) {
+  .search-bar-icon {
     font-size: 25px;
-  
   }
 }
 
-.search-bar-btn{
-  height:42px ;
+.search-bar-btn {
+  height: 42px;
 }
 
-@media(min-width:767px){
-  .search-bar-btn{
-    height:65px;
+@media (min-width: 767px) {
+  .search-bar-btn {
+    height: 65px;
   }
 }
-@media(min-width:768px){
-  .search-icon{
-   font-size: 35px;
-  
+@media (min-width: 768px) {
+  .search-icon {
+    font-size: 35px;
   }
-  
-  .location-icon{
+
+  .location-icon {
     font-size: 35px;
   }
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .search-bar {
     padding: 15px 35px 30px 35px;
   }
 }
 
-.search-bar-bg{
+.search-bar-bg {
   background-color: white;
   height: 42px;
-  
 }
 
-@media(min-width:768px){
-
-.search-bar-bg{
-  background-color: white;
-  height:65px
+@media (min-width: 768px) {
+  .search-bar-bg {
+    background-color: white;
+    height: 65px;
+  }
 }
-}
-.searchbar-input{
+.searchbar-input {
   background-color: white;
 }
 
-.location-col{
+.location-col {
   margin-right: 15px;
 }
 /*-------------------------------------------*\
@@ -184,8 +182,12 @@ ion-title {
 \*-------------------------------------------*/
 .city-details-container {
   padding-left: 25px;
+  
 }
 
+.city-details-container ion-text {
+  color: #ffffff;
+}
 @media (min-width: 768px) {
   .city-details-container {
     padding-left: 50px;
@@ -400,17 +402,21 @@ ion-item {
 
 .forecast-day-label {
   color: #0066a1;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .forecast-date-label {
   color: #0066a1;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
   .forecast-detail-row {
-     width:650px;
-     padding-left: 10px;
-     padding-top: 20px;
+    width: 650px;
+    padding-left: 10px;
+    padding-top: 20px;
   }
 }
 
@@ -422,11 +428,10 @@ ion-item {
 }
 
 @media (max-width: 767px) {
-.forecast-icon  ion-thumbnail {
-  max-width: 2rem;
-  
-padding-top: 15px;
-}
+  .forecast-icon ion-thumbnail {
+    max-width: 2rem;
+    padding-top: 15px;
+  }
 }
 
 /*-------------------------------------------*\
@@ -435,18 +440,17 @@ padding-top: 15px;
 
 @media (max-width: 767px) {
   .graph-data-row {
-    width:650px;
+    width: 650px;
     padding-top: 20px;
-    
   }
 }
 
-.graph-bg{
+.graph-bg {
   height: 75px;
   z-index: 0;
   top: 10px;
 }
-.max-point{
+.max-point {
   width: 100%;
   height: 60px;
   position: absolute;

@@ -20,6 +20,8 @@ import { GetCityNameGeocoderService } from '../get-city-name-geocoder.service';
   styleUrls: ['home.page.scss'],
 })
 
+
+
 /**
  * HomePage class
  */
@@ -80,7 +82,6 @@ mDateNameForGraphRenderOnly = [];
  * Today In Date Count
  */
   mDateinDay=0;
-
 /**
  * Max Chart Graph
  */
@@ -370,6 +371,7 @@ public resetVariable(){
   this.mFiveDaysWeatherIcon=[];
  this.inputFromSearchBox = "";
 
+
 }
 
 /**
@@ -377,6 +379,9 @@ public resetVariable(){
  */
 public onClickLoction(){
   this.getLatLon();
+  document.documentElement.style.setProperty(`--myvar`, "none");
 }
+
+
 
 }
