@@ -19,19 +19,27 @@
         <ion-card class="ion-no-margin content-bg">
           <ion-card-header class="ion-no-padding">
             <div class="search-bar">
-              <ion-item lines="none" class="search-bar-bg ion-no-padding"> 
-                <ion-input placeholder="Search Location" class="ion-no-padding" [(ngModel)]="inputFromSearchBox"></ion-input>
-                <ion-buttons>
-                  <ion-button (click)="onClickSearchBar()">  
-                    <ion-icon  name="search-outline" class="search-icon"></ion-icon>
-                  </ion-button>
-                </ion-buttons>
-                <ion-buttons>
+              <ion-row  class="search-bar-bg ion-no-padding ion-align-items-stretch"> 
+                <ion-col size="9">
+                  <ion-searchbar placeholder="Search Location"  class="ion-no-padding search-bar-bg" (change)="onClickSearchBar()" [(ngModel)]="inputFromSearchBox"></ion-searchbar>
+                </ion-col>
+                <ion-col>
+                </ion-col>
+                <ion-col size="1">
+                  <ion-buttons class="search-bar-btn">
+                    <ion-button (click)="onClickSearchBar()" > 
+                      <ion-icon  name="search-outline" class="search-bar-icon"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
+                </ion-col>
+                <ion-col size="1" class="location-col">
+                <ion-buttons class="search-bar-btn">
                   <ion-button (click)="onClickLoction()"> 
-                    <ion-icon  name="location-outline" class="location-icon"></ion-icon>
+                    <ion-icon  name="location-outline" class="search-bar-icon"></ion-icon>
                   </ion-button>
                 </ion-buttons>
-              </ion-item>
+                </ion-col>
+              </ion-row>
            </div>
           </ion-card-header>
           <ion-card-content class="ion-no-padding">
@@ -225,7 +233,7 @@
                     <div class="forecast-date-label">
                       <ion-text>{{day}}</ion-text>
                     </div>
-                    <div class="">
+                    <div class="forecast-icon">
                       <ion-thumbnail slot="start" class="ion-no-margin">
                         <img src="../../assets/images/01d.png" />
                       </ion-thumbnail>
@@ -234,9 +242,9 @@
                 </ion-row>
                 <ion-row class="graph-data-row">
                   <ion-card-content class="ion-no-padding graph-container">
-                    <div id="bck"><canvas #lineCanvasBckGround></canvas></div>
-                    <div id="min"><canvas #lineCanvasMin></canvas></div>
-                    <div id="max"><canvas #lineCanvasMax></canvas></div>
+                    <div class="graph-bg"><canvas #lineCanvasBckGround></canvas></div>
+                    <div class="min-point"><canvas #lineCanvasMin></canvas></div>
+                    <div class="max-point"><canvas #lineCanvasMax></canvas></div>
                   </ion-card-content>
                <!----   <div class="ion-card-content">
                     <div id="bck"><canvas #lineCanvasBckGround></canvas></div>
