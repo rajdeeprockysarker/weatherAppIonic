@@ -400,10 +400,14 @@ ion-item {
 
 .forecast-day-label {
   color: #0066a1;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .forecast-date-label {
   color: #0066a1;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
@@ -424,8 +428,7 @@ ion-item {
 @media (max-width: 767px) {
 .forecast-icon  ion-thumbnail {
   max-width: 2rem;
-  
-padding-top: 15px;
+  padding-top: 15px;
 }
 }
 

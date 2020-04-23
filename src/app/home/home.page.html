@@ -232,16 +232,16 @@
             <ion-grid class="ion-no-padding">
               <div scrollY="true">
                 <ion-row class="forecast-detail-row ion-justify-content-center"> 
-                  <ion-col *ngFor="let day of mDate" class="ion-no-padding">
+                  <ion-col *ngFor="let icon of mFiveDaysWeatherIcon; let i=index" class="ion-no-padding">
                     <div class="forecast-day-label">
-                      <ion-text>Today</ion-text>
+                      <ion-text>{{days[i]}}</ion-text>
                     </div>
                     <div class="forecast-date-label">
-                      <ion-text>{{day}}</ion-text>
+                      <ion-text>{{mDateForGraphRenderOnly[i]}}</ion-text>
                     </div>
                     <div class="forecast-icon">
                       <ion-thumbnail slot="start" class="ion-no-margin">
-                        <img src="../../assets/images/01d.png" />
+                        <img src="{{icon}}"/>
                       </ion-thumbnail>
                     </div>
                   </ion-col>
