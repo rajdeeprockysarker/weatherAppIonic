@@ -76,7 +76,10 @@ mDateNameForGraphRenderOnly = [];
  * Store static value for vwetical scroll
  */
   days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-
+  /**
+ * Today In Date Count
+ */
+  mDateinDay=0;
 
 /**
  * Max Chart Graph
@@ -150,8 +153,11 @@ inputFromSearchBox: string = "";
     public mGetCityNameGeocoderService:GetCityNameGeocoderService) {
 
     
-    this.loadFromUrl("Bengaluru");
+    //this.loadFromUrl("Bengaluru");
     // this.getLatLon();
+
+    this.mDateinDay = new Date().getDay();
+   
 
   }
 
@@ -214,7 +220,7 @@ inputFromSearchBox: string = "";
         /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
         this.mDateForGraphRenderOnly=this.mBuisnessLogicService.formatDateForDateAndMonth(this.mDate);
-        // this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDate);
+         this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDateinDay);
         
         // for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
         //   console.log(JSON.parse(mFiveDaysValue).list[i]);
