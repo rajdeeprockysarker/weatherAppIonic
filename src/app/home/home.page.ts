@@ -166,7 +166,7 @@ inputFromSearchBox: string = "";
   async getCityNameUsingLatLon(lat,lon){
     const cityAndCuntryCode=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
     this.loadFromUrl(cityAndCuntryCode);
-    this.value=cityAndCuntryCode;
+    this.value = cityAndCuntryCode;
   }
 
   value;
