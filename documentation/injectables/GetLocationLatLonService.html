@@ -59,6 +59,13 @@
             <code>src/app/get-location-lat-lon.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Inject to root of app</p>
+
+            </p>
 
 
 
@@ -126,7 +133,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/get-location-lat-lon.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/get-location-lat-lon.service.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -140,6 +147,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -154,6 +162,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>To get platform application run on</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>geolocation</td>
@@ -166,6 +178,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Geolocation service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>nativeGeocoder</td>
@@ -178,6 +194,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>NativeGeocoder service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -217,17 +237,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/get-location-lat-lon.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/get-location-lat-lon.service.ts:44</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Async task for get platform and get lat,lon</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Promise<string></p>
 
                     </div>
                 </td>
@@ -260,10 +288,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/get-location-lat-lon.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/get-location-lat-lon.service.ts:27</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Geo accuracy</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -287,10 +321,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/get-location-lat-lon.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/get-location-lat-lon.service.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Geo latitude</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -314,10 +354,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/get-location-lat-lon.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/get-location-lat-lon.service.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Geo longitude</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -342,10 +388,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/get-location-lat-lon.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/get-location-lat-lon.service.ts:36</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">To get platform application run on</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -360,19 +411,44 @@ import { Platform } from &#x27;@ionic/angular&#x27;;
 import { Geolocation } from &#x27;@ionic-native/geolocation/ngx&#x27;;
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from &#x27;@ionic-native/native-geocoder/ngx&#x27;;
 
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+/**
+ * Service for Get Lat and Lon
+*/
 export class GetLocationLatLonService {
+  /**
+   * Geo latitude
+   */
   geoLatitude: number;
+  /**
+   * Geo longitude
+   */
   geoLongitude: number;
+  /**
+   * Geo accuracy
+   */
   geoAccuracy:number;
+
+  /**
+   * @constructor GetLocationLatLonService
+   * @param platform To get platform application run on
+   * @param geolocation Geolocation service
+   * @param nativeGeocoder NativeGeocoder service
+   */
 
   constructor(public platform: Platform,
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder) { }
 
+    /**
+     * Async task for get platform and get lat,lon
+     * @returns Promise&lt;string&gt;
+     */
    async getGeolocation():Promise&lt;string&gt; {
     if (this.platform.is(&#x27;android&#x27;) || this.platform.is(&#x27;ios&#x27;)) {
       await this.geolocation.getCurrentPosition().then((resp) &#x3D;&gt; {

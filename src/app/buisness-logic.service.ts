@@ -1,20 +1,30 @@
 import { Injectable } from '@angular/core';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Buisness Logic for HomePage.ts
+*/
 export class BuisnessLogicService {
 
+ /**
+ * Constructor of BuisnessLogicService
+ * @param {TemperatureConverterService} mTemperatureConverterService Convert Temperature Service
+ */
   constructor(public mTemperatureConverterService:TemperatureConverterService) { }
 /**
- * Declar url for image fetch from server
+ * Declare url for image fetch from server
  */
-  url="http://openweathermap.org/img/w/";
+  url:string="http://openweathermap.org/img/w/";
   /**
   * Get image path from weather description string 
-  * @param mWeatherType 
+  * @param mWeatherType String
   * @param icon
+  * @returns Image local path or image URL path
   */
   public getWeatherBannerIconFromAssetFolder(mWeatherType: string,icon:string): string {
 
@@ -85,6 +95,7 @@ export class BuisnessLogicService {
    /**
   * Get image path from weather description string 
   * @param mWeatherType 
+  * @returns Image local path 
   */
  public getWeatherForcastIconFromAssetFolder(mWeatherType: string): string {
 
@@ -135,7 +146,12 @@ export class BuisnessLogicService {
   }
 
 }
-
+/**
+ * 
+ * @param mDate Days in YYYU-MM-DD format
+ * @param mFiveDaysValue Json value
+ * @returns Get Five days value to render graph
+ */
 public getFiveDaysValueInFormat(mDate,mFiveDaysValue){
   var mDateTempMax = [];
   var mDateTempMin = [];
@@ -189,7 +205,11 @@ public getFiveDaysValueInFormat(mDate,mFiveDaysValue){
 
         return totlReturn;
 }
-
+/**
+ * Get Occurance of date
+ * @param mFiveDaysValue Json value
+ *  @returns Occurance of date
+ */
 public getNoOfDays(mFiveDaysValue){
   var mDate = [];
   for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
@@ -199,7 +219,11 @@ public getNoOfDays(mFiveDaysValue){
   }
   return mDate;
 }
-
+/**
+ *  Return as 'DD Month Name' format 
+ * @param mDate Dates in YYYY-MM-DD format
+ * @returns Formated date and month
+ */
 public formatDateForDateAndMonth(mDate){
   var mFormatedDate=[];
   var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -209,7 +233,11 @@ public formatDateForDateAndMonth(mDate){
   }
       return mFormatedDate;
 }
-
+/**
+ * Return Day of Week
+ * @param mDate Dates in YYYY-MM-DD format
+ * @returns Day of Week
+ */
 public getDayOfWeek(mDate){
   var mFormatedDate=[];
 

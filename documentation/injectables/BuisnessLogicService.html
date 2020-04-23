@@ -59,6 +59,13 @@
             <code>src/app/buisness-logic.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Inject to root of app</p>
+
+            </p>
 
 
 
@@ -78,6 +85,9 @@
                                     <span class="modifier">Public</span>
                                 <a href="#mTemperatureConverterService">mTemperatureConverterService</a>
                             </li>
+                            <li>
+                                <a href="#url">url</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -90,6 +100,14 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formatDateForDateAndMonth">formatDateForDateAndMonth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getDayOfWeek">getDayOfWeek</a>
+                            </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getFiveDaysValueInFormat">getFiveDaysValueInFormat</a>
@@ -129,12 +147,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/buisness-logic.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/buisness-logic.service.ts:12</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor of BuisnessLogicService</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -143,6 +163,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -157,6 +178,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Convert Temperature Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -172,6 +197,158 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDateForDateAndMonth"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            formatDateForDateAndMonth
+                        </b>
+                        <a href="#formatDateForDateAndMonth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatDateForDateAndMonth(mDate)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="227"
+                            class="link-to-prism">src/app/buisness-logic.service.ts:227</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Return as &#39;DD Month Name&#39; format </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mDate</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Dates in YYYY-MM-DD format</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Formated date and month</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDayOfWeek"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getDayOfWeek
+                        </b>
+                        <a href="#getDayOfWeek"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDayOfWeek(mDate)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="241"
+                            class="link-to-prism">src/app/buisness-logic.service.ts:241</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Return Day of Week</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mDate</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Dates in YYYY-MM-DD format</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Day of Week</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -196,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">src/app/buisness-logic.service.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/app/buisness-logic.service.ts:155</a></div>
                 </td>
             </tr>
 
@@ -212,6 +389,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -223,6 +401,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Days in YYYU-MM-DD format</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>mFiveDaysValue</td>
@@ -232,6 +414,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Json value</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -243,7 +429,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Get Five days value to render graph</p>
+
                     </div>
                 </td>
             </tr>
@@ -273,14 +460,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="177"
-                            class="link-to-prism">src/app/buisness-logic.service.ts:177</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="213"
+                            class="link-to-prism">src/app/buisness-logic.service.ts:213</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get Occurance of date</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -289,6 +478,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -300,6 +490,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Json value</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -311,7 +505,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Occurance of date</p>
+
                     </div>
                 </td>
             </tr>
@@ -334,15 +529,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getWeatherBannerIconFromAssetFolder(mWeatherType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getWeatherBannerIconFromAssetFolder(mWeatherType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/buisness-logic.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/buisness-logic.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -360,6 +555,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -374,6 +570,24 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>String</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>icon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -385,7 +599,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Image local path or image URL path</p>
+
                     </div>
                 </td>
             </tr>
@@ -415,8 +630,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">src/app/buisness-logic.service.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/buisness-logic.service.ts:100</a></div>
                 </td>
             </tr>
 
@@ -459,7 +674,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Image local path </p>
+
                     </div>
                 </td>
             </tr>
@@ -492,10 +708,53 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/buisness-logic.service.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/buisness-logic.service.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">Convert Temperature Service</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="url"></a>
+                        <span class="name">
+                            <b>
+                            url</b>
+                            <a href="#url"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;http://openweathermap.org/img/w/&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/buisness-logic.service.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Declare url for image fetch from server</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -507,19 +766,33 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { TemperatureConverterService } from &#x27;../app/temperature-converter.service&#x27;;
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+/**
+ * Buisness Logic for HomePage.ts
+*/
 export class BuisnessLogicService {
 
+ /**
+ * Constructor of BuisnessLogicService
+ * @param {TemperatureConverterService} mTemperatureConverterService Convert Temperature Service
+ */
   constructor(public mTemperatureConverterService:TemperatureConverterService) { }
-
+/**
+ * Declare url for image fetch from server
+ */
+  url:string&#x3D;&quot;http://openweathermap.org/img/w/&quot;;
   /**
   * Get image path from weather description string 
-  * @param mWeatherType 
+  * @param mWeatherType String
+  * @param icon
+  * @returns Image local path or image URL path
   */
-  public getWeatherBannerIconFromAssetFolder(mWeatherType: string): string {
+  public getWeatherBannerIconFromAssetFolder(mWeatherType: string,icon:string): string {
 
     switch (mWeatherType) {
       case &quot;clear sky&quot;: {
@@ -558,14 +831,26 @@ export class BuisnessLogicService {
         return &quot;../../assets/images/mist.png&quot;;
         break;
       }
-      case &quot;mist&quot;: {
-        return &quot;../../assets/images/mist.png&quot;;
+      case &quot;thunderstorm&quot;: {
+        return &quot;../../assets/images/thunderstorm.png&quot;;
+        break;
+      }
+      case &quot;cleat sky night&quot;: {
+        return &quot;../../assets/images/cleat_sky_night.png&quot;;
+        break;
+      }
+      case &quot;few clouds night&quot;: {
+        return &quot;../../assets/images/few-Clouds_night.png&quot;;
+        break;
+      }
+      case &quot;rain night&quot;: {
+        return &quot;../../assets/images/rain_night.png&quot;;
         break;
       }
 
 
       default: {
-        return &quot;../../assets/images/clear_sky.png&quot;;
+        return this.url+icon+&quot;.png&quot;;
         break;
       }
     }
@@ -576,6 +861,7 @@ export class BuisnessLogicService {
    /**
   * Get image path from weather description string 
   * @param mWeatherType 
+  * @returns Image local path 
   */
  public getWeatherForcastIconFromAssetFolder(mWeatherType: string): string {
 
@@ -626,7 +912,12 @@ export class BuisnessLogicService {
   }
 
 }
-
+/**
+ * 
+ * @param mDate Days in YYYU-MM-DD format
+ * @param mFiveDaysValue Json value
+ * @returns Get Five days value to render graph
+ */
 public getFiveDaysValueInFormat(mDate,mFiveDaysValue){
   var mDateTempMax &#x3D; [];
   var mDateTempMin &#x3D; [];
@@ -680,17 +971,57 @@ public getFiveDaysValueInFormat(mDate,mFiveDaysValue){
 
         return totlReturn;
 }
-
+/**
+ * Get Occurance of date
+ * @param mFiveDaysValue Json value
+ *  @returns Occurance of date
+ */
 public getNoOfDays(mFiveDaysValue){
   var mDate &#x3D; [];
   for (let i &#x3D; 0; i &lt; JSON.parse(mFiveDaysValue).list.length; i++) {
     console.log(JSON.parse(mFiveDaysValue).list[i]);
-    var mDateAfterAplit &#x3D; (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(&quot; &quot;)[0];
+    var mDateAfterAplit &#x3D; (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(&quot; &quot;)[0];   
     mDate.indexOf(mDateAfterAplit) &#x3D;&#x3D;&#x3D; -1 ? mDate.push(mDateAfterAplit) : console.log();
   }
   return mDate;
 }
+/**
+ *  Return as &#x27;DD Month Name&#x27; format 
+ * @param mDate Dates in YYYY-MM-DD format
+ * @returns Formated date and month
+ */
+public formatDateForDateAndMonth(mDate){
+  var mFormatedDate&#x3D;[];
+  var monthNames &#x3D; [ &#x27;Jan&#x27;, &#x27;Feb&#x27;, &#x27;Mar&#x27;, &#x27;Apr&#x27;, &#x27;May&#x27;, &#x27;Jun&#x27;,
+            &#x27;Jul&#x27;, &#x27;Aug&#x27;, &#x27;Sep&#x27;, &#x27;Oct&#x27;, &#x27;Nov&#x27;, &#x27;Dec&#x27; ];
+  for (let i &#x3D; 0; i &lt; mDate.length; i++) {
+  mFormatedDate.push(mDate[i].split(&quot;-&quot;)[2]+&quot; &quot;+monthNames[parseInt(mDate[i].split(&quot;-&quot;)[1])-1]);
+  }
+      return mFormatedDate;
+}
+/**
+ * Return Day of Week
+ * @param mDate Dates in YYYY-MM-DD format
+ * @returns Day of Week
+ */
+public getDayOfWeek(mDate){
+  var mFormatedDate&#x3D;[];
 
+ var dayNames &#x3D; [ &#x27;Sunday&#x27;, &#x27;Monday&#x27;, &#x27;Tuesday&#x27;, &#x27;Wednesday&#x27;, &#x27;Thursday&#x27;, &#x27;Friday&#x27;, &#x27;Saturday&#x27;];
+ for (let i &#x3D; 0; i &lt; mDate.length; i++) {
+   if(i&#x3D;0){
+    mFormatedDate.push(&#x27;Today&#x27;);
+   }
+   else{
+    const mDay &#x3D; new Date(mDate[i]);
+    const day &#x3D; mDay.getDay();
+    mFormatedDate.push(dayNames[day])
+   }
+ }
+// Sunday - Saturday : 0 - 6
+
+return mFormatedDate;
+}
 
 }
 </code></pre>

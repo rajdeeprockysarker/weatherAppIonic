@@ -3,19 +3,44 @@ import { Platform } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
-
+/**
+ * Inject to root of app
+*/
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Service for Get Lat and Lon
+*/
 export class GetLocationLatLonService {
+  /**
+   * Geo latitude
+   */
   geoLatitude: number;
+  /**
+   * Geo longitude
+   */
   geoLongitude: number;
+  /**
+   * Geo accuracy
+   */
   geoAccuracy:number;
+
+  /**
+   * @constructor GetLocationLatLonService
+   * @param platform To get platform application run on
+   * @param geolocation Geolocation service
+   * @param nativeGeocoder NativeGeocoder service
+   */
 
   constructor(public platform: Platform,
     private geolocation: Geolocation,
     private nativeGeocoder: NativeGeocoder) { }
 
+    /**
+     * Async task for get platform and get lat,lon
+     * @returns Promise<string>
+     */
    async getGeolocation():Promise<string> {
     if (this.platform.is('android') || this.platform.is('ios')) {
       await this.geolocation.getCurrentPosition().then((resp) => {

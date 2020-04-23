@@ -434,7 +434,7 @@ export class UIServiceServiceService {
   public dismissLoading() {
       const interval &#x3D; setInterval(() &#x3D;&gt; {
           if (this.loader || !this.loaderLoading) {
-              this.loader.dismiss().then(() &#x3D;&gt; { this.loader &#x3D; null; clearInterval(interval)});
+              this.loader.dismiss().then(() &#x3D;&gt; { /*this.loader &#x3D; null; */clearInterval(interval)});
           } else if (!this.loader &amp;&amp; !this.loaderLoading) {
               clearInterval(interval);
           }
