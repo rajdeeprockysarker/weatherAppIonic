@@ -21,7 +21,13 @@
             <div class="search-bar">
               <ion-row  class="search-bar-bg ion-no-padding ion-align-items-stretch"> 
                 <ion-col size="9">
-                  <ion-searchbar placeholder="Search Location"  class="ion-no-padding search-bar-bg" (change)="onClickSearchBar()" [(ngModel)]="inputFromSearchBox"></ion-searchbar>
+                  <ion-searchbar 
+                    clearIcon = " never"
+                    placeholder = "Search Location" 
+                    inputmode = "search"
+                    class = "ion-no-padding search-bar-bg" 
+                    (change) = "onClickSearchBar()" 
+                    [(ngModel)] = "inputFromSearchBox"></ion-searchbar>
                 </ion-col>
                 <ion-col>
                 </ion-col>
