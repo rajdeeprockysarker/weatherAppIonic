@@ -4,6 +4,12 @@ import { HttpClient,HttpHandler } from '@angular/common/http';
 import { HomePage } from './home.page';
 import { RepositoryService } from '../repository.service';
 import { TemperatureConverterService } from '../temperature-converter.service';
+import { GetCityNameGeocoderService } from '../get-city-name-geocoder.service';
+import { GetLocationLatLonService } from '../get-location-lat-lon.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { FormsModule } from '@angular/forms';
+import { Platform } from '@ionic/angular';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -12,10 +18,15 @@ describe('HomePage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(),FormsModule],
       providers: [
         HttpClient,HttpHandler,RepositoryService,
-        TemperatureConverterService
+        TemperatureConverterService,
+        GetCityNameGeocoderService,
+        GetLocationLatLonService,
+        Geolocation,
+        NativeGeocoder,
+        Platform
     ]
     }).compileComponents();
 

@@ -19,6 +19,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { GetLocationLatLonService } from './get-location-lat-lon.service';
 import { GetCityNameGeocoderService } from './get-city-name-geocoder.service';
+import { Platform } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { GetCityNameGeocoderService } from './get-city-name-geocoder.service';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [
     StatusBar,
+    Platform,
     SplashScreen,
     Geolocation,
     NativeGeocoder,    
