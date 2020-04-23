@@ -155,9 +155,10 @@ inputFromSearchBox: string = "";
     
     //this.loadFromUrl("Bengaluru");
     // this.getLatLon();
+ 
 
     this.mDateinDay = new Date().getDay();
-   
+    this.onClickLoction();
 
   }
 
