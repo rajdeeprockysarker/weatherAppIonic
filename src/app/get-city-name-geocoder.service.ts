@@ -18,7 +18,7 @@ export class GetCityNameGeocoderService {
  */
   geoAddress:string;
 /**
- * 
+ * Constractor of GetCityNameGeocoderService Service
  * @param platform To get platform application run on
  * @param geolocation Geolocation service
  * @param nativeGeocoder NativeGeocoder service

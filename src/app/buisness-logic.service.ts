@@ -147,7 +147,7 @@ export class BuisnessLogicService {
 
 }
 /**
- * 
+ * Get morethan one days forcast
  * @param mDate Days in YYYU-MM-DD format
  * @param mFiveDaysValue Json value
  * @returns Get Five days value to render graph
@@ -252,17 +252,6 @@ public getDayOfWeek(mDateinDay){
         mFormatedDate.push(dayNames[k++]);
       }
   } 
-//  for (let i = 0; i < mDate.length; i++) {
-//    if(i=0){
-//     mFormatedDate.push('Today');
-//    }
-//    else{
-//     const mDay = new Date(mDate[i]);
-//     const day = mDay.getDay();
-//     mFormatedDate.push(dayNames[day])
-//    }
-//  }
-// Sunday - Saturday : 0 - 6
 
 return mFormatedDate;
 }

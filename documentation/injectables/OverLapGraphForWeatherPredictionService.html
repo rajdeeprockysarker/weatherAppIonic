@@ -327,17 +327,26 @@ export class OverLapGraphForWeatherPredictionService {
               );
               ctx.textAlign &#x3D; &quot;center&quot;;
               ctx.textBaseline &#x3D; &quot;bottom&quot;;
+               ctx.font &#x3D; &quot;12px verdana&quot;;
              
             
               this.data.datasets.forEach(function (dataset, i) {
                 const meta &#x3D; chartInstance.controller.getDatasetMeta(i);
                 meta.data.forEach(function (bar, index) {
                   const data &#x3D; dataset.data[index];
-                  
-                  if(index!&#x3D;5)
-                  ctx.fillText(data, bar._model.x +10, bar._model.y - 2);
-                  else
-                  ctx.fillText(data, bar._model.x -6, bar._model.y - 2);
+                  if(label&#x3D;&#x3D;&quot;Highest&quot;){
+                    if(index!&#x3D;5)
+                      ctx.fillText(data, bar._model.x +10, bar._model.y - 4);
+                    else
+                    ctx.fillText(data, bar._model.x -6, bar._model.y - 4);
+                  }
+                  if(label&#x3D;&#x3D;&quot;Lowest&quot;){
+                    if(index!&#x3D;5)
+                      ctx.fillText(data, bar._model.x +10, bar._model.y +14);
+                    else
+                    ctx.fillText(data, bar._model.x -6, bar._model.y +14);
+                  }
+
                 });
               });
             }
@@ -391,6 +400,7 @@ export class OverLapGraphForWeatherPredictionService {
               borderDash: [],
               borderDashOffset: 0.0,
               borderJoinStyle: &#x27;round&#x27;,
+              borderWidth:&#x27;1&#x27;,
               pointBorderColor: &#x27;rgba(75,192,192,1)&#x27;,
               pointBackgroundColor: &#x27;#fff&#x27;,
               pointBorderWidth: 1,

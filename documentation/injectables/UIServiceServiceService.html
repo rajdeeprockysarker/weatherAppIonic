@@ -89,6 +89,9 @@
                                     <span class="modifier">Private</span>
                                 <a href="#loaderLoading">loaderLoading</a>
                             </li>
+                            <li>
+                                <a href="#mLoading">mLoading</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -102,11 +105,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#dismissLoading">dismissLoading</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#showLoading">showLoading</a>
                             </li>
                         </ul>
@@ -189,7 +192,7 @@
                     <a name="dismissLoading"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
                             dismissLoading
                         </b>
                         <a href="#dismissLoading"><span class="icon ion-ios-link"></span></a>
@@ -206,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/uiservice-service.service.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/uiservice-service.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -218,7 +221,7 @@
 </div>
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -232,7 +235,7 @@
                     <a name="showLoading"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
                             showLoading
                         </b>
                         <a href="#showLoading"><span class="icon ion-ios-link"></span></a>
@@ -249,8 +252,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/uiservice-service.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/uiservice-service.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -294,7 +297,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -377,6 +380,33 @@
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mLoading"></a>
+                        <span class="name">
+                            <b>
+                            mLoading</b>
+                            <a href="#mLoading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/uiservice-service.service.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Loading constant </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
 </section>
 
     </div>
@@ -413,33 +443,46 @@ export class UIServiceServiceService {
  */
   private loaderLoading &#x3D; false;
 
+ /**
+  * Loading constant 
+  * */ 
+
+  mLoading;
+
   /**
    * Show Loading Dialog
    * @param message UI Loading Message
    */
-  public showLoading(message: string) {
-      this.loaderLoading &#x3D; true;
-      this.loading.create({
-          message,
-          showBackdrop: true
-      }).then(load &#x3D;&gt; {
-          this.loader &#x3D; load;
-          load.present().then(() &#x3D;&gt; { this.loaderLoading &#x3D; false; });
+  async showLoading(message: string) {
+    //   this.loaderLoading &#x3D; true;
+    //   this.loading.create({
+    //       message,
+    //       showBackdrop: true
+    //   }).then(load &#x3D;&gt; {
+    //       this.loader &#x3D; load;
+    //       load.present().then(() &#x3D;&gt; { this.loaderLoading &#x3D; false; });
+    //   });
+    this.mLoading &#x3D; await this.loading.create({
+        message: &#x27;Please wait...&#x27;,
+        duration: 1000
       });
+      await this.mLoading.present();
   }
 
   /**
    * Dismiss Loading Dialog
    */
-  public dismissLoading() {
-      const interval &#x3D; setInterval(() &#x3D;&gt; {
-          if (this.loader || !this.loaderLoading) {
-              this.loader.dismiss().then(() &#x3D;&gt; { /*this.loader &#x3D; null; */clearInterval(interval)});
-          } else if (!this.loader &amp;&amp; !this.loaderLoading) {
-              clearInterval(interval);
-          }
-      }, 500);
+  async dismissLoading() {
+    //   const interval &#x3D; setInterval(() &#x3D;&gt; {
+    //       if (this.loader || !this.loaderLoading) {
+    //           this.loader.dismiss().then(() &#x3D;&gt; { /*this.loader &#x3D; null; */clearInterval(interval)});
+    //       } else if (!this.loader &amp;&amp; !this.loaderLoading) {
+    //           clearInterval(interval);
+    //       }
+    //   }, 500);
+    const { role, data } &#x3D; await this.mLoading.onDidDismiss();
   }
+
 }</code></pre>
     </div>
 

@@ -27,6 +27,7 @@ export class GetLocationLatLonService {
   geoAccuracy:number;
 
   /**
+   * Constractor of GetLocationLatLon Service
    * @constructor GetLocationLatLonService
    * @param platform To get platform application run on
    * @param geolocation Geolocation service

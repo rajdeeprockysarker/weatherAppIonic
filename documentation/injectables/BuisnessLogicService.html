@@ -290,7 +290,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getDayOfWeek(mDate)</code>
+                    <code>getDayOfWeek(mDateinDay)</code>
                 </td>
             </tr>
 
@@ -315,22 +315,17 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
-                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>mDate</td>
+                                    <td>mDateinDay</td>
 
                                     <td>
                                         No
                                     </td>
 
 
-                                    <td>
-                                        <p>Dates in YYYY-MM-DD format</p>
-
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -381,6 +376,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get morethan one days forcast</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -913,7 +910,7 @@ export class BuisnessLogicService {
 
 }
 /**
- * 
+ * Get morethan one days forcast
  * @param mDate Days in YYYU-MM-DD format
  * @param mFiveDaysValue Json value
  * @returns Get Five days value to render graph
@@ -1004,21 +1001,20 @@ public formatDateForDateAndMonth(mDate){
  * @param mDate Dates in YYYY-MM-DD format
  * @returns Day of Week
  */
-public getDayOfWeek(mDate){
+public getDayOfWeek(mDateinDay){
   var mFormatedDate&#x3D;[];
 
  var dayNames &#x3D; [ &#x27;Sunday&#x27;, &#x27;Monday&#x27;, &#x27;Tuesday&#x27;, &#x27;Wednesday&#x27;, &#x27;Thursday&#x27;, &#x27;Friday&#x27;, &#x27;Saturday&#x27;];
- for (let i &#x3D; 0; i &lt; mDate.length; i++) {
-   if(i&#x3D;0){
-    mFormatedDate.push(&#x27;Today&#x27;);
-   }
-   else{
-    const mDay &#x3D; new Date(mDate[i]);
-    const day &#x3D; mDay.getDay();
-    mFormatedDate.push(dayNames[day])
-   }
- }
-// Sunday - Saturday : 0 - 6
+ mFormatedDate.push(&quot;Today&quot;);
+ let k&#x3D;mDateinDay+1;
+  for (let i&#x3D;0;i&lt;6;i++){
+      if(k&#x3D;&#x3D;7){
+          k&#x3D;0;
+      }
+      else{
+        mFormatedDate.push(dayNames[k++]);
+      }
+  } 
 
 return mFormatedDate;
 }

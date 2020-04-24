@@ -105,6 +105,11 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
+                                <a href="#presentToastWithArgumentMessage">presentToastWithArgumentMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#presentToastWithOptions">presentToastWithOptions</a>
                             </li>
                         </ul>
@@ -205,8 +210,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/uitoast.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/uitoast.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -219,6 +224,86 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentToastWithArgumentMessage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                            presentToastWithArgumentMessage
+                        </b>
+                        <a href="#presentToastWithArgumentMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentToastWithArgumentMessage(mMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/uitoast.service.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Toast with argument message</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Message</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -249,8 +334,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/uitoast.service.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/uitoast.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -336,16 +421,30 @@ export class UIToastService {
   constructor(public toastController: ToastController) { }
 
 /**
-* Network issue Toast
-*/
-  public async presentToast() {
+ * Toast with argument message
+ * @param mMessage Message
+ */
+  public async presentToastWithArgumentMessage(mMessage:string) {
     const toast &#x3D; await this.toastController.create({
-      message: &#x27;Network issue ...&#x27;,
+      message: mMessage,
       duration: 1200,
       cssClass:&quot;toast-width-class&quot;
     });
     toast.present();
   }
+
+
+  /**
+* Network issue Toast
+*/
+public async presentToast() {
+  const toast &#x3D; await this.toastController.create({
+    message: &#x27;Cityname not found or check network...&#x27;,
+    duration: 1200,
+    cssClass:&quot;toast-width-class&quot;
+  });
+  toast.present();
+}
 
 /**
 * Toast With Option
