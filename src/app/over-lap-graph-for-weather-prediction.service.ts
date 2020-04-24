@@ -49,7 +49,7 @@ export class OverLapGraphForWeatherPredictionService {
               );
               ctx.textAlign = "center";
               ctx.textBaseline = "bottom";
-               ctx.font = "12px verdana";
+               ctx.font = "11px verdana";
              
             
               this.data.datasets.forEach(function (dataset, i) {
@@ -58,9 +58,9 @@ export class OverLapGraphForWeatherPredictionService {
                   const data = dataset.data[index];
                   if(label=="Highest"){
                     if(index!=5)
-                      ctx.fillText(data, bar._model.x +10, bar._model.y - 4);
+                      ctx.fillText(data, bar._model.x +10, bar._model.y - 2);
                     else
-                    ctx.fillText(data, bar._model.x -6, bar._model.y - 4);
+                    ctx.fillText(data, bar._model.x -6, bar._model.y - 2);
                   }
                   if(label=="Lowest"){
                     if(index!=5)
@@ -74,7 +74,7 @@ export class OverLapGraphForWeatherPredictionService {
             }
           },
           tooltips: {
-            enabled: true
+            enabled: false
           },
           responsive: true, 
           maintainAspectRatio: false,
