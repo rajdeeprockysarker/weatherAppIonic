@@ -150,6 +150,9 @@ mBackgroundLayoutVisiblity=false;
  * @param mOverLapGraphForWeatherPredictionServiceMax Instance of OverLapGraphForWeatherPredictionServiceMa
  * @param mOverLapGraphForWeatherPredictionServiceMin Instance of OverLapGraphForWeatherPredictionServiceMa
  * @param mOverLapGraphForWeatherPredictionServiceBck Instance of OverLapGraphForWeatherPredictionServiceMa
+ * @param mBuisnessLogicService Instance of BuisnessLogicService
+ * @param mGetLocationLatLonService Instance of GetLocationLatLonService
+ * @param mGetCityNameGeocoderService Instance of GetCityNameGeocoderService
  */
   constructor(public mRepositoryyAPIService: RepositoryService,
     public mUIServiceService: UIServiceServiceService,
@@ -182,8 +185,10 @@ mBackgroundLayoutVisiblity=false;
      this.getCityNameUsingLatLon(Number(valueFromLocationService.split("---")[0]),Number(valueFromLocationService.split("---")[1]));
   //  this.value=valueokok;
   }
-/**
+  /**
    * Get CityName From GetCityNameGeocoderService
+   * @param lat Latitude
+   * @param lon Longitude 
    */
   async getCityNameUsingLatLon(lat,lon){
     const cityAndCuntryCode=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
