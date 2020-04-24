@@ -1,6 +1,9 @@
 /*-------------------------------------------*\
   *    home.page.scss
   * 
+  *    Put style rules here that you want to apply locally on home.page.html
+  *    To Locate any style rule use the below index.
+  *
   *    Index
   *      -Global block
   *      -Header Toolbar
@@ -17,7 +20,6 @@
 \*-------------------------------------------*/
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -33,9 +35,7 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
@@ -70,8 +70,19 @@ div[scrolly="true"] {
   overflow: hidden;
 }
 
-.hide{
+.hide {
   display: var(--mBackgroundLayoutVisiblity);
+}
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 25px;
 }
 
 /*-------------------------------------------*\
@@ -93,17 +104,6 @@ div[scrolly="true"] {
 .menu-btn {
   padding-left: 8px;
   margin-left: 0px;
-}
-
-ion-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0 90px 1px;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 25px;
 }
 
 @media (max-width: 360px) {
@@ -180,12 +180,12 @@ ion-title {
 .location-col {
   margin-right: 15px;
 }
+
 /*-------------------------------------------*\
    City Data Block Css
 \*-------------------------------------------*/
 .city-details-container {
   padding-left: 25px;
-  
 }
 
 .city-details-container ion-text {
@@ -214,16 +214,6 @@ ion-title {
     font-size: 19px;
   }
 }
-/**
-.city-temp-div{
-padding-bottom: 12px;
-}
-
-@media (min-width: 768px) {
-  .city-temp-div{
-    padding-bottom: 15px;
-    }
-}**/
 
 .temp-label {
   font-size: 53px;
@@ -409,8 +399,8 @@ ion-item {
   font-weight: bold;
 }
 
-.forecast-date-label-lg{
-  padding-left:5px;
+.forecast-date-label-lg {
+  padding-left: 5px;
 }
 
 .forecast-date-label-md {
@@ -450,17 +440,17 @@ ion-item {
   }
 }
 
-@media(max-width:767px){
-  .forecast-col-lg{
-      display: none;
-  }
-}
-@media(min-width:768px){
-  .forecast-col-md{
+@media (max-width: 767px) {
+  .forecast-col-lg {
     display: none;
   }
-  .forecast-col-lg{
-    padding-right: 30px;
+}
+@media (min-width: 768px) {
+  .forecast-col-md {
+    display: none;
+  }
+  .forecast-col-lg {
+    padding-right: 20px;
   }
 }
 
