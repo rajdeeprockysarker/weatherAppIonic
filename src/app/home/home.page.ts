@@ -9,7 +9,7 @@ import { OverLapGraphForWeatherPredictionService } from '../over-lap-graph-for-w
 import { BuisnessLogicService } from '../buisness-logic.service';
 import { GetLocationLatLonService } from '../get-location-lat-lon.service';
 import { GetCityNameGeocoderService } from '../get-city-name-geocoder.service';
-
+import { StringValueEnum} from '../string-value-enum.enum';
 
 /**
  * Component for HomePage.ts
@@ -130,6 +130,10 @@ mDateNameForGraphRenderOnly = [];
  * InputFrom SearchBox
  */
 inputFromSearchBox: string = "";
+/**
+ * Enum value
+ */
+  mStringValueEnum;
 
 /**
  * Visible on Data / Invisible on No-Data
@@ -158,6 +162,7 @@ mBackgroundLayoutVisiblity=false;
     public mGetLocationLatLonService:GetLocationLatLonService,
     public mGetCityNameGeocoderService:GetCityNameGeocoderService) {
 
+      this.mStringValueEnum=StringValueEnum;
     
     //this.loadFromUrl("Bengaluru");
     // this.getLatLon();
@@ -173,7 +178,7 @@ mBackgroundLayoutVisiblity=false;
    */
   async getLatLon(){
     const valueFromLocationService=await this.mGetLocationLatLonService.getGeolocation();
-    if(valueFromLocationService!=='Error')
+    if(valueFromLocationService!==this.mStringValueEnum.Error)
      this.getCityNameUsingLatLon(Number(valueFromLocationService.split("---")[0]),Number(valueFromLocationService.split("---")[1]));
   //  this.value=valueokok;
   }
@@ -182,11 +187,11 @@ mBackgroundLayoutVisiblity=false;
    */
   async getCityNameUsingLatLon(lat,lon){
     const cityAndCuntryCode=await this.mGetCityNameGeocoderService.getGeolocation(lat,lon);
-    if(cityAndCuntryCode.toString().length>0 && cityAndCuntryCode.toString()!='Error'){
+    if(cityAndCuntryCode.toString().length>0 && cityAndCuntryCode.toString()!=this.mStringValueEnum.Error){
     this.loadFromUrl(cityAndCuntryCode);
     }
     else{
-      this.mUIToastService.presentToastWithArgumentMessage("Problem to get current location, please retry or enable your GPS ...");
+      this.mUIToastService.presentToastWithArgumentMessage(this.mStringValueEnum.EnableYourGPS);
     }
   }
 
@@ -204,14 +209,14 @@ mBackgroundLayoutVisiblity=false;
     this.mDateTempMax = [];
     this.mDateTempMin = [];
 
-    this.mUIServiceService.showLoading("Loading...");
+    this.mUIServiceService.showLoading(this.mStringValueEnum.Loading);
     const mFiveDaysValue = await this.mRepositoryyAPIService.getWeatherValueFiveDays(mCity);
     //console.log(mFiveDaysValue);
-    if (JSON.parse(mFiveDaysValue) == "Unknown Error" || 
-    JSON.parse(mFiveDaysValue) == "Not Found" ) {
+    if (JSON.parse(mFiveDaysValue) == this.mStringValueEnum.UnknownError || 
+    JSON.parse(mFiveDaysValue) == this.mStringValueEnum.NotFound ) {
       this.mUIServiceService.dismissLoading();
-      (JSON.parse(mFiveDaysValue) == "Unknown Error")?this.mUIToastService.presentToastWithArgumentMessage("Please check network connection...")
-                                                    :this.mUIToastService.presentToastWithArgumentMessage("Location not found...");      
+      (JSON.parse(mFiveDaysValue) == this.mStringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.mStringValueEnum.PleaseCheckNetworkConnection)
+                                                    :this.mUIToastService.presentToastWithArgumentMessage(this.mStringValueEnum.LocationNotFound);      
       this.resetVariable();
       this.mBackgroundLayoutVisiblity=false;
       document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "none");
@@ -220,11 +225,11 @@ mBackgroundLayoutVisiblity=false;
 
       const mCurrentValue = await this.mRepositoryyAPIService.getWeatherValueCurrent(mCity);
       console.log(mCurrentValue);
-      if (JSON.parse(mFiveDaysValue) == "Unknown Error" || 
-      JSON.parse(mFiveDaysValue) == "Not Found" ) {
+      if (JSON.parse(mFiveDaysValue) == this.mStringValueEnum.UnknownError || 
+      JSON.parse(mFiveDaysValue) == this.mStringValueEnum.NotFound  ) {
         this.mUIServiceService.dismissLoading();
-        (JSON.parse(mFiveDaysValue) == "Unknown Error")?this.mUIToastService.presentToastWithArgumentMessage("Please check network connection...")
-        :this.mUIToastService.presentToastWithArgumentMessage("Location not found...");      
+        (JSON.parse(mFiveDaysValue) == this.mStringValueEnum.UnknownError)?this.mUIToastService.presentToastWithArgumentMessage(this.mStringValueEnum.PleaseCheckNetworkConnection)
+        :this.mUIToastService.presentToastWithArgumentMessage(this.mStringValueEnum.LocationNotFound);      
 
         this.resetVariable();
         this.mBackgroundLayoutVisiblity=false;
@@ -317,11 +322,11 @@ mBackgroundLayoutVisiblity=false;
 
 
         this.mOverLapGraphForWeatherPredictionServiceMax.showGrapg(this.lineChartMax, this.lineCanvasMax, this.mDate,
-          this.mDateTempMax, 'Highest', 'rgba(225,217,104)',this.minTempof5DaysToraphLimit
+          this.mDateTempMax, this.mStringValueEnum.Highest, 'rgba(225,217,104)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);
 
         this.mOverLapGraphForWeatherPredictionServiceMin.showGrapg(this.lineChartMin, this.lineCanvasMin, this.mDate
-          , this.mDateTempMin, 'Lowest', 'rgba(15,148,225)',this.minTempof5DaysToraphLimit
+          , this.mDateTempMin, this.mStringValueEnum.Lowest, 'rgba(15,148,225)',this.minTempof5DaysToraphLimit
           ,this.maxTempof5DaysToGrphLimit);
 
           this.mOverLapGraphForWeatherPredictionServiceBck.showGrapg(this.lineChartBckGround, this.lineCanvasBckGround, this.mDate
@@ -348,7 +353,7 @@ mBackgroundLayoutVisiblity=false;
     this.loadFromUrl(this.inputFromSearchBox.trim())
     }
     else{
-      this.mUIToastService.presentToastWithArgumentMessage("Please enter more than 2 characters");
+      this.mUIToastService.presentToastWithArgumentMessage(this.mStringValueEnum.PleaseEnterMoreThanTwoCharacters);
     }
     
   }
