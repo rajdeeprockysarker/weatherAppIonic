@@ -255,11 +255,7 @@ mBackgroundLayoutVisiblity=false;
         this.mDateForGraphRenderOnly=this.mBuisnessLogicService.formatDateForDateAndMonth(this.mDate);
          this.mDateNameForGraphRenderOnly=this.mBuisnessLogicService.getDayOfWeek(this.mDateinDay);
         
-        // for (let i = 0; i < JSON.parse(mFiveDaysValue).list.length; i++) {
-        //   console.log(JSON.parse(mFiveDaysValue).list[i]);
-        //   var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[i].dt_txt).split(" ")[0];
-        //   this.mDate.indexOf(mDateAfterAplit) === -1 ? this.mDate.push(mDateAfterAplit) : console.log();
-        // }
+
 
         this.mDateForGraphRenderOnly=[]
         var monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -267,62 +263,14 @@ mBackgroundLayoutVisiblity=false;
         for (let i = 0; i < this.mDate.length; i++) {
           this.mDateForGraphRenderOnly.push(this.mDate[i].split("-")[2]+" "+monthNames[parseInt(this.mDate[i].split("-")[1])-1]);
           }
-
-        ///// getHigh Log Temp Of Each Day /////
-        // for (let i = 0; i < this.mDate.length; i++) {
-        //   console.log(this.mDate[i]);
-
-        //   var mHeigh = 0;
-        //   var mLow = 0;
-        //   var mWeatherIcon="";
-
-        //   for (let j = 0; j < JSON.parse(mFiveDaysValue).list.length; j++) {
-        //     var mDateAfterAplit = (JSON.parse(mFiveDaysValue).list[j].dt_txt).split(" ")[0];
-        //     if (mDateAfterAplit == this.mDate[i]) {
-        //       if (mHeigh == 0 && mLow == 0) {
-        //         mHeigh = JSON.parse(mFiveDaysValue).list[j].main.temp_max;
-        //         mWeatherIcon=this.mBuisnessLogicService.getWeatherForcastIconFromAssetFolder(JSON.parse(mFiveDaysValue).list[j].weather[0].icon);
-        //         mLow = JSON.parse(mFiveDaysValue).list[j].main.temp_min;
-        //         continue;
-        //       }
-        //       else {
-        //         if (mHeigh < JSON.parse(mFiveDaysValue).list[j].main.temp_max) {
-        //           mHeigh = JSON.parse(mFiveDaysValue).list[j].main.temp_max;
-        //           mWeatherIcon=this.mBuisnessLogicService.getWeatherForcastIconFromAssetFolder(JSON.parse(mFiveDaysValue).list[j].weather[0].icon);
-        //         }
-        //         if (mLow > JSON.parse(mFiveDaysValue).list[j].main.temp_min) {
-        //           mLow = JSON.parse(mFiveDaysValue).list[j].main.temp_min;
-        //         }
-        //       }
-
-        //     }
-
-        //   }
-
-        //   this.mDateTempMax.push(Math.floor(this.mTemperatureConverterService.kelvinToCelcius(mHeigh)));
-        //   this.mDateTempMin.push(Math.floor(this.mTemperatureConverterService.kelvinToCelcius(mLow)));
-        //   this.mFiveDaysWeatherIcon.push(mWeatherIcon);
-
-        //   console.log(this.mTemperatureConverterService.kelvinToCelcius(mHeigh)
-        //     + "     " + this.mTemperatureConverterService.kelvinToCelcius(mLow));
-
-
-        // }
-
-
+ 
         var getResultAfterFormating=this.mBuisnessLogicService.getFiveDaysValueInFormat(this.mDate,mFiveDaysValue);
         this.mDateTempMax=getResultAfterFormating[0];
         this.mDateTempMin=getResultAfterFormating[1];
         this.mFiveDaysWeatherIcon=getResultAfterFormating[2];
 
         console.log("Graph Calling");
-        // this.mShowGraphService.showGrapg(this.lineChart,this.lineCanvas,this.mDate,
-        //   this.mDateTempMax,this.mDateTempMin);
-
-        //   this.mShowGraphService.showGrapg(this.lineChart,this.lineCanvastwo,this.mDate,
-        //     this.mDateTempMax,this.mDateTempMin);
-
-         this.maxTempof5DaysToGrphLimit=Math.max(...this.mDateTempMax)+this.mGraphMaxMinFromTempDelta;
+          this.maxTempof5DaysToGrphLimit=Math.max(...this.mDateTempMax)+this.mGraphMaxMinFromTempDelta;
          this.minTempof5DaysToraphLimit=Math.min(...this.mDateTempMin)-this.mGraphMaxMinFromTempDelta;
 
 
