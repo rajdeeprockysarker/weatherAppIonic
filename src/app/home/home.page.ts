@@ -1,4 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { RepositoryService } from '../repository.service';
 import { Router, NavigationExtras } from '@angular/router';
@@ -163,7 +164,8 @@ mBackgroundLayoutVisiblity=false;
     public mOverLapGraphForWeatherPredictionServiceBck: OverLapGraphForWeatherPredictionService,
     public mBuisnessLogicService:BuisnessLogicService,
     public mGetLocationLatLonService:GetLocationLatLonService,
-    public mGetCityNameGeocoderService:GetCityNameGeocoderService) {
+    public mGetCityNameGeocoderService:GetCityNameGeocoderService,
+    public menuCtrl: MenuController) {
 
       this.mStringValueEnum=StringValueEnum;
     
@@ -176,6 +178,10 @@ mBackgroundLayoutVisiblity=false;
 
   }
 
+
+  ngOnInit() {
+    this.menuCtrl.swipeGesture(false);
+  }
   /**
    * Get Lat Long From GetLocationLatLonService
    */
