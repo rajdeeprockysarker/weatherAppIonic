@@ -229,11 +229,11 @@
                 <ion-row class="forecast-detail-row ion-justify-content-center" >
                   <ion-col
                     *ngFor="let icon of mFiveDaysWeatherIcon; let i=index"
-                    class="ion-no-padding">
+                    class="ion-no-padding forecast-col-md">
                     <div class="forecast-day-label">
-                      <ion-text>{{days[i]}}</ion-text>
+                      <ion-text>{{mDateNameForGraphRenderOnly[i]}}</ion-text>
                     </div>
-                    <div class="forecast-date-label">
+                    <div class="forecast-date-label-md">
                       <ion-text>{{mDateForGraphRenderOnly[i]}}</ion-text>
                     </div>
                     <div class="forecast-icon">
@@ -242,6 +242,19 @@
                       </ion-thumbnail>
                     </div>
                   </ion-col>
+                  <ion-col
+                  *ngFor="let icon of mFiveDaysWeatherIcon; let i=index"
+                  class="ion-no-padding forecast-col-lg">
+                  <div class="forecast-day-label">
+                    <ion-text>{{mDateNameForGraphRenderOnly[i]}}</ion-text>
+                    <ion-text class="forecast-date-label-lg">{{mDateForGraphRenderOnly[i]}}</ion-text>
+                  </div>
+                  <div class="forecast-icon">
+                    <ion-thumbnail slot="start" class="ion-no-margin">
+                      <img src="{{icon}}" />
+                    </ion-thumbnail>
+                  </div>
+                </ion-col>
                 </ion-row>
                 <ion-row class="graph-data-row">
                   <ion-card-content class="ion-no-padding graph-container">

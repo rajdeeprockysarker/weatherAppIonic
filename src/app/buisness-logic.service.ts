@@ -241,7 +241,7 @@ public formatDateForDateAndMonth(mDate){
 public getDayOfWeek(mDateinDay){
   var mFormatedDate=[];
 
- var dayNames = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+ var dayNames = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
  mFormatedDate.push("Today");
  let k=mDateinDay+1;
   for (let i=0;i<6;i++){
