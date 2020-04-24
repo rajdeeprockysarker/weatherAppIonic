@@ -10,6 +10,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { FormsModule } from '@angular/forms';
 import { Platform } from '@ionic/angular';
+import { UIServiceServiceService } from '../uiservice-service.service';
+import { UIToastService } from '../uitoast.service';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -80,5 +82,13 @@ it('Should call TemperatureConverterService', () => {
  
 });
 
+it('Should be reset all variables', () => {
+  expect(component.resetVariable()).toBeUndefined();
+});
+
+it('Should able call with argument from HomePage', () => {  
+  let mrepo=fixture.debugElement.injector.get(UIToastService); 
+  expect(mrepo.presentToastWithArgumentMessage("Pass Argument")).toBeTruthy();
+});
 
 });
