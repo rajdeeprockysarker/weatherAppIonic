@@ -372,8 +372,7 @@ public resetVariable(){
   this.mHumidity='';
   this.mCurrentWeatherIcon="";
   this.mFiveDaysWeatherIcon=[];
- this.inputFromSearchBox = "";
-
+  this.inputFromSearchBox = "";
 
 }
 
@@ -381,9 +380,8 @@ public resetVariable(){
  * Search with current location
  */
 public onClickLoction(){
+  document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "none");
   this.getLatLon();
-  
-  
 }
 
 
