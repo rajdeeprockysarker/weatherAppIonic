@@ -214,6 +214,7 @@ mBackgroundLayoutVisiblity=false;
                                                     :this.mUIToastService.presentToastWithArgumentMessage("Location not found...");      
       this.resetVariable();
       this.mBackgroundLayoutVisiblity=false;
+      document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "none");
     }
     else {
 
@@ -227,9 +228,11 @@ mBackgroundLayoutVisiblity=false;
 
         this.resetVariable();
         this.mBackgroundLayoutVisiblity=false;
+        document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "none");
       }
       else {
         this.mBackgroundLayoutVisiblity=true;
+        document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "");
         this.mCity = JSON.parse(mCurrentValue).name+" , "+JSON.parse(mCurrentValue).sys.country;
         this.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(mCurrentValue).main).temp)).toString() ;
         this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
@@ -379,7 +382,8 @@ public resetVariable(){
  */
 public onClickLoction(){
   this.getLatLon();
-  document.documentElement.style.setProperty(`--myvar`, "none");
+  
+  
 }
 
 
