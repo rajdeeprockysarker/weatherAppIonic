@@ -154,6 +154,7 @@ mBackgroundLayoutVisiblity=false;
  * @param mBuisnessLogicService Instance of BuisnessLogicService
  * @param mGetLocationLatLonService Instance of GetLocationLatLonService
  * @param mGetCityNameGeocoderService Instance of GetCityNameGeocoderService
+ * @param menuCtrl Instance of MenuController
  */
   constructor(public mRepositoryyAPIService: RepositoryService,
     public mUIServiceService: UIServiceServiceService,
@@ -178,7 +179,9 @@ mBackgroundLayoutVisiblity=false;
 
   }
 
-
+/**
+ * Method is called Angular when the page  is rendered
+ */
   ngOnInit() {
     this.menuCtrl.swipeGesture(false);
   }
