@@ -140,6 +140,10 @@ inputFromSearchBox: string = "";
  * Visible on Data / Invisible on No-Data
  */
 mBackgroundLayoutVisiblity=false;
+/**
+ * Searchbar input character minimum limit
+ */
+mSearchBarInputLimit=2
 
 
 /**
@@ -307,10 +311,10 @@ mBackgroundLayoutVisiblity=false;
   }
 
   /**
-   * On Click From Search Icon
+   * On click from search icon
    */
   public onClickSearchBar(){
-    if(this.inputFromSearchBox.trim().length>2){
+    if(this.inputFromSearchBox.trim().length > this.mSearchBarInputLimit){
     console.log("ONCLick"+this.inputFromSearchBox);
     this.loadFromUrl(this.inputFromSearchBox.trim())
     }
