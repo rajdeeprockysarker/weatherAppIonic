@@ -314,8 +314,8 @@ mSearchBarInputLimit=2
    * On click from search icon
    */
   public onClickSearchBar(){
-    if(this.inputFromSearchBox.trim().length > this.mSearchBarInputLimit){
-    console.log("ONCLick"+this.inputFromSearchBox);
+    if(this.mBuisnessLogicService.characterCountValidation(this.inputFromSearchBox, this.mSearchBarInputLimit)){
+    console.log("ONCLick"+this.inputFromSearchBox)
     this.loadFromUrl(this.inputFromSearchBox.trim())
     }
     else{

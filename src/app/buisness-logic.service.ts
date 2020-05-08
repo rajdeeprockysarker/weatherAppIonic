@@ -281,4 +281,15 @@ public getDayOfWeek(mDateinDay){
 return mFormatedDate;
 }
 
+public characterCountValidation(inputFromSearchBox,mSearchBarInputLimit):boolean{
+
+  if(inputFromSearchBox.trim().length > mSearchBarInputLimit){
+    return true;
+  }
+  else{
+    return false;
+  }
+
+}
+
 }
