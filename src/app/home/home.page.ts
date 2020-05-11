@@ -194,8 +194,9 @@ mSearchBarInputLimit=2
    */
   async getLatLon(){
     const valueFromLocationService=await this.mGetLocationLatLonService.getGeolocation();
-    if(valueFromLocationService!==this.mStringValueEnum.Error)
-     this.getCityNameUsingLatLon(Number(valueFromLocationService                                                     .split("---")[0]),Number(valueFromLocationService.split("---")[1]));
+    console.log(valueFromLocationService);
+    if(JSON.parse(JSON.stringify(valueFromLocationService)).Exception!==this.mStringValueEnum.Error)
+     this.getCityNameUsingLatLon(Number(JSON.parse(JSON.stringify(valueFromLocationService)).Latitude),Number(JSON.parse(JSON.stringify(valueFromLocationService)).Longitude));
   //  this.value=valueokok;
   }
   /**
