@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
+import { StringValueEnum} from './string-value-enum.enum';
 /**
  * Inject to root of app
 */
@@ -10,16 +11,23 @@ import { TemperatureConverterService } from '../app/temperature-converter.servic
  * Buisness Logic for HomePage.ts
 */
 export class BuisnessLogicService {
+    /**
+   * Enum class object
+   */
+  mStringValueEnum;
 
  /**
  * Constructor of BuisnessLogicService
  * @param {TemperatureConverterService} mTemperatureConverterService Convert Temperature Service
  */
-  constructor(public mTemperatureConverterService:TemperatureConverterService) { }
+  constructor(public mTemperatureConverterService:TemperatureConverterService) {
+    this.mStringValueEnum=StringValueEnum;
+    this.url=this.mStringValueEnum.WEATHERICONURL;
+   }
 /**
  * Declare url for image fetch from server
  */
-  url:string="http://openweathermap.org/img/w/";
+  url:string;
   /**
   * Get image path from weather description string 
   * @param mWeatherType String
