@@ -257,12 +257,13 @@ mSearchBarInputLimit=2
       else {
         this.mBackgroundLayoutVisiblity=true;
         document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "");
-        this.mCity = JSON.parse(mCurrentValue).name+" , "+JSON.parse(mCurrentValue).sys.country;
-        this.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(mCurrentValue).main).temp)).toString() ;
-        this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
-        this.mWind = (JSON.parse(mCurrentValue).wind).speed;
-        this.mHumidity = (JSON.parse(mCurrentValue).main).humidity + "%";
-        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description,JSON.parse(mCurrentValue).weather[0].icon);
+        var returnCurrentWeatherValueAfterParse=this.mBuisnessLogicService.getCurrentDayValue(mCurrentValue);
+        this.mCity = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mCity;
+        this.mCurrentTemp = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mCurrentTemp;
+        this.mWeather = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mWeather;
+        this.mWind = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mWind;
+        this.mHumidity = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mHumidity;
+        this.mCurrentWeatherIcon=JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mCurrentWeatherIcon;
 
         /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);

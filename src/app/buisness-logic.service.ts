@@ -173,6 +173,25 @@ export class BuisnessLogicService {
 }
 /**
  * Get morethan one days forcast
+ * @param responceString From Server
+ * @returns Current day weather condition
+ */
+
+public getCurrentDayValue(responceString):JSON{
+  var returnValue={mCity:"",mCurrentTemp:"",mWeather:"",mWind:"",mHumidity:"",mCurrentWeatherIcon:""};
+  returnValue.mCity= JSON.parse(responceString).name+" , "+JSON.parse(responceString).sys.country;
+  returnValue.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(responceString).main).temp)).toString() ;
+  returnValue.mWeather = (JSON.parse(responceString).weather)[0].description;
+  returnValue.mWind= (JSON.parse(responceString).wind).speed;
+  returnValue.mHumidity= (JSON.parse(responceString).main).humidity + "%";
+  returnValue.mCurrentWeatherIcon=this.getWeatherBannerIconFromAssetFolder(JSON.parse(responceString).weather[0].description,JSON.parse(responceString).weather[0].icon);
+  
+  return JSON.parse(JSON.stringify(returnValue))
+  
+}
+
+/**
+ * Get morethan one days forcast
  * @param mDate Days in YYYU-MM-DD format
  * @param mFiveDaysValue Json value
  * @returns Get Five days value to render graph
