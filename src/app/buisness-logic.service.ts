@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TemperatureConverterService } from '../app/temperature-converter.service';
+import { StringValueEnum} from './string-value-enum.enum';
 /**
  * Inject to root of app
 */
@@ -10,16 +11,23 @@ import { TemperatureConverterService } from '../app/temperature-converter.servic
  * Buisness Logic for HomePage.ts
 */
 export class BuisnessLogicService {
+    /**
+   * Enum class object
+   */
+  mStringValueEnum;
 
  /**
  * Constructor of BuisnessLogicService
  * @param {TemperatureConverterService} mTemperatureConverterService Convert Temperature Service
  */
-  constructor(public mTemperatureConverterService:TemperatureConverterService) { }
+  constructor(public mTemperatureConverterService:TemperatureConverterService) {
+    this.mStringValueEnum=StringValueEnum;
+    this.url=this.mStringValueEnum.WEATHERICONURL;
+   }
 /**
  * Declare url for image fetch from server
  */
-  url:string="http://openweathermap.org/img/w/";
+  url:string;
   /**
   * Get image path from weather description string 
   * @param mWeatherType String
@@ -173,6 +181,25 @@ export class BuisnessLogicService {
 }
 /**
  * Get morethan one days forcast
+ * @param responceString From Server
+ * @returns Current day weather condition
+ */
+
+public getCurrentDayValue(responceString):JSON{
+  var returnValue={mCity:"",mCurrentTemp:"",mWeather:"",mWind:"",mHumidity:"",mCurrentWeatherIcon:""};
+  returnValue.mCity= JSON.parse(responceString).name+" , "+JSON.parse(responceString).sys.country;
+  returnValue.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(responceString).main).temp)).toString() ;
+  returnValue.mWeather = (JSON.parse(responceString).weather)[0].description;
+  returnValue.mWind= (JSON.parse(responceString).wind).speed;
+  returnValue.mHumidity= (JSON.parse(responceString).main).humidity + "%";
+  returnValue.mCurrentWeatherIcon=this.getWeatherBannerIconFromAssetFolder(JSON.parse(responceString).weather[0].description,JSON.parse(responceString).weather[0].icon);
+  
+  return JSON.parse(JSON.stringify(returnValue))
+  
+}
+
+/**
+ * Get morethan one days forcast
  * @param mDate Days in YYYU-MM-DD format
  * @param mFiveDaysValue Json value
  * @returns Get Five days value to render graph
@@ -279,6 +306,17 @@ public getDayOfWeek(mDateinDay){
   } 
 
 return mFormatedDate;
+}
+
+public characterCountValidation(inputFromSearchBox,mSearchBarInputLimit):boolean{
+
+  if(inputFromSearchBox.trim().length > mSearchBarInputLimit){
+    return true;
+  }
+  else{
+    return false;
+  }
+
 }
 
 }

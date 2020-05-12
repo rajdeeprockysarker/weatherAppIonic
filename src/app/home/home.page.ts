@@ -140,6 +140,10 @@ inputFromSearchBox: string = "";
  * Visible on Data / Invisible on No-Data
  */
 mBackgroundLayoutVisiblity=false;
+/**
+ * Searchbar input character minimum limit
+ */
+mSearchBarInputLimit=2
 
 
 /**
@@ -154,6 +158,7 @@ mBackgroundLayoutVisiblity=false;
  * @param mBuisnessLogicService Instance of BuisnessLogicService
  * @param mGetLocationLatLonService Instance of GetLocationLatLonService
  * @param mGetCityNameGeocoderService Instance of GetCityNameGeocoderService
+ * @param menuCtrl Instance of MenuController
  */
   constructor(public mRepositoryyAPIService: RepositoryService,
     public mUIServiceService: UIServiceServiceService,
@@ -178,7 +183,9 @@ mBackgroundLayoutVisiblity=false;
 
   }
 
-
+/**
+ * Method is called Angular when the page  is rendered
+ */
   ngOnInit() {
     this.menuCtrl.swipeGesture(false);
   }
@@ -187,8 +194,9 @@ mBackgroundLayoutVisiblity=false;
    */
   async getLatLon(){
     const valueFromLocationService=await this.mGetLocationLatLonService.getGeolocation();
-    if(valueFromLocationService!==this.mStringValueEnum.Error)
-     this.getCityNameUsingLatLon(Number(valueFromLocationService.split("---")[0]),Number(valueFromLocationService.split("---")[1]));
+    console.log(valueFromLocationService);
+    if(JSON.parse(JSON.stringify(valueFromLocationService)).Exception!==this.mStringValueEnum.Error)
+     this.getCityNameUsingLatLon(Number(JSON.parse(JSON.stringify(valueFromLocationService)).Latitude),Number(JSON.parse(JSON.stringify(valueFromLocationService)).Longitude));
   //  this.value=valueokok;
   }
   /**
@@ -249,12 +257,13 @@ mBackgroundLayoutVisiblity=false;
       else {
         this.mBackgroundLayoutVisiblity=true;
         document.documentElement.style.setProperty(`--mBackgroundLayoutVisiblity`, "");
-        this.mCity = JSON.parse(mCurrentValue).name+" , "+JSON.parse(mCurrentValue).sys.country;
-        this.mCurrentTemp = Math.floor(this.mTemperatureConverterService.kelvinToCelcius((JSON.parse(mCurrentValue).main).temp)).toString() ;
-        this.mWeather = (JSON.parse(mCurrentValue).weather)[0].description;
-        this.mWind = (JSON.parse(mCurrentValue).wind).speed;
-        this.mHumidity = (JSON.parse(mCurrentValue).main).humidity + "%";
-        this.mCurrentWeatherIcon=this.mBuisnessLogicService.getWeatherBannerIconFromAssetFolder(JSON.parse(mCurrentValue).weather[0].description,JSON.parse(mCurrentValue).weather[0].icon);
+        var returnCurrentWeatherValueAfterParse=this.mBuisnessLogicService.getCurrentDayValue(mCurrentValue);
+        this.mCity = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mCity;
+        this.mCurrentTemp = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mCurrentTemp;
+        this.mWeather = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mWeather;
+        this.mWind = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mWind;
+        this.mHumidity = JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mHumidity;
+        this.mCurrentWeatherIcon=JSON.parse(JSON.stringify(returnCurrentWeatherValueAfterParse)).mCurrentWeatherIcon;
 
         /// Insert Date into this.mDate Array
         this.mDate=this.mBuisnessLogicService.getNoOfDays(mFiveDaysValue);
@@ -304,11 +313,11 @@ mBackgroundLayoutVisiblity=false;
   }
 
   /**
-   * On Click From Search Icon
+   * On click from search icon
    */
   public onClickSearchBar(){
-    if(this.inputFromSearchBox.trim().length>2){
-    console.log("ONCLick"+this.inputFromSearchBox);
+    if(this.mBuisnessLogicService.characterCountValidation(this.inputFromSearchBox, this.mSearchBarInputLimit)){
+    console.log("ONCLick"+this.inputFromSearchBox)
     this.loadFromUrl(this.inputFromSearchBox.trim())
     }
     else{

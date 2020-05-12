@@ -40,24 +40,29 @@ export class GetLocationLatLonService {
 
     /**
      * Async task for get platform and get lat,lon
-     * @returns Promise<string>
+     * @returns Promise<JSON>
      */
-   async getGeolocation():Promise<string> {
+   async getGeolocation():Promise<JSON> {
+   
+    var errorString="Error";
+    var returnJsonObject = { "Exception":null, "Latitude":null, "Longitude":null, "Accuracy":null};
     if (this.platform.is('android') || this.platform.is('ios')) {
       await this.geolocation.getCurrentPosition().then((resp) => {
         this.geoLatitude = resp.coords.latitude;
         this.geoLongitude = resp.coords.longitude; 
-        this.geoAccuracy = resp.coords.accuracy;       
+        this.geoAccuracy = resp.coords.accuracy; 
+        returnJsonObject.Latitude=this.geoLatitude.toString();
+        returnJsonObject.Longitude=this.geoLongitude.toString();
+        returnJsonObject.Accuracy=this.geoAccuracy.toString();      
        }).catch((error) => {
-       // this.geoAddress ='Error getting location'+ JSON.stringify(error);  
-       return  'Error';
+          returnJsonObject.Exception=errorString;
        });
       }
       else{
-        return 'Error';
+          returnJsonObject.Exception=errorString;
       }
 
-       return (this.geoLatitude).toString()+"---"+(this.geoLongitude).toString();
+      return JSON.parse(JSON.stringify(returnJsonObject));
       
     }
   

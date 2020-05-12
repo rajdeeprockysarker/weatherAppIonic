@@ -12,4 +12,5 @@ export enum StringValueEnum {
     URLForcast="http://api.openweathermap.org/data/2.5/forecast?q=",
     URLCurrent="http://api.openweathermap.org/data/2.5//weather?q=",
     AppID="d994b85acc1528b1a51fb0273b7ca7c4",
+    WEATHERICONURL="http://openweathermap.org/img/w/",
 }
